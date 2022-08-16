@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <DefineConstants>WINDOWS</DefineConstants>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+	  <PackageReference Include="DefaultDocumentation" Version="0.8.3-beta1" PrivateAssets="all"/>
+    <PackageReference Include="DefaultDocumentation.Markdown" Version="0.8.3-beta1" PrivateAssets="all"/>
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\LeoEcsSaber.XML</DocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <DefaultDocumentationFolder>.\docs\api</DefaultDocumentationFolder>
+    <AssemblyPageName>LeoEcsSaber</AssemblyPageName>
+    <DefaultDocumentationIncludeUndocumentedItems>true</DefaultDocumentationIncludeUndocumentedItems>
+    <DefaultDocumentationFileNameFactory>Name</DefaultDocumentationFileNameFactory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="docs\**" />
+    <Compile Remove="docs\**" />
+    <EmbeddedResource Remove="docs\**" />
+    <None Remove="docs\**" />
+  </ItemGroup>
+  <Target Name="SpicNSpan"  AfterTargets="Clean">
+      <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+      <RemoveDir Directories="$(BaseOutputPath)" />
+  </Target>
+  <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
+    <Message Text="Restoring dotnet tools" Importance="High" />
+    <Exec Command="dotnet tool restore" />
+  </Target>
+</Project>

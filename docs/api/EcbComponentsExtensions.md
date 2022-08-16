@@ -1,0 +1,27 @@
+#### [LeoEcsSaber](index.md 'index')
+### [Saber7ooth.LeoEcsSaber.Extensions.ECB](Saber7ooth.LeoEcsSaber.Extensions.ECB.md 'Saber7ooth.LeoEcsSaber.Extensions.ECB')
+
+## EcbComponentsExtensions Class
+
+```csharp
+public static class EcbComponentsExtensions
+```
+
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; EcbComponentsExtensions
+
+| Methods | |
+| :--- | :--- |
+| [Add&lt;TComponent&gt;(this CommandsSequenceComponent, int, EcsPool&lt;TComponent&gt;)](EcbComponentsExtensions.Add_TComponent_(thisCommandsSequenceComponent,int,EcsPool_TComponent_).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Add<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int, Saber7ooth.LeoEcsSaber.EcsPool<TComponent>)') | |
+| [Add&lt;TComponent&gt;(this CommandsSequenceComponent, int)](EcbComponentsExtensions.Add_TComponent_(thisCommandsSequenceComponent,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Add<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int)') | |
+| [CheckSourceEntityIsAlive(this CommandComponent, EntityCommandBuffer, int)](EcbComponentsExtensions.CheckSourceEntityIsAlive(thisCommandComponent,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.CheckSourceEntityIsAlive(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [Del&lt;TComponent&gt;(this CommandsSequenceComponent, int)](EcbComponentsExtensions.Del_TComponent_(thisCommandsSequenceComponent,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Del<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int)') | |
+| [ExecuteAdd(this CommandComponent, int, EntityCommandBuffer, int)](EcbComponentsExtensions.ExecuteAdd(thisCommandComponent,int,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.ExecuteAdd(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, int, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [ExecuteCommand(this CommandComponent, int, EntityCommandBuffer, int)](EcbComponentsExtensions.ExecuteCommand(thisCommandComponent,int,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.ExecuteCommand(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, int, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [ExecuteDel(this CommandComponent, EntityCommandBuffer, int)](EcbComponentsExtensions.ExecuteDel(thisCommandComponent,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.ExecuteDel(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [ExecuteSet(this CommandComponent, int, EntityCommandBuffer, int)](EcbComponentsExtensions.ExecuteSet(thisCommandComponent,int,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.ExecuteSet(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, int, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [ExecuteSetOrAdd(this CommandComponent, int, EntityCommandBuffer, int)](EcbComponentsExtensions.ExecuteSetOrAdd(thisCommandComponent,int,EntityCommandBuffer,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.ExecuteSetOrAdd(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandComponent, int, Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, int)') | |
+| [Sequence(this EntityCommandBuffer, EcsPackedEntity)](EcbComponentsExtensions.Sequence(thisEntityCommandBuffer,EcsPackedEntity).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Sequence(this Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer, Saber7ooth.LeoEcsSaber.EcsPackedEntity)') | |
+| [Set&lt;TComponent&gt;(this CommandsSequenceComponent, int, EcsPool&lt;TComponent&gt;)](EcbComponentsExtensions.Set_TComponent_(thisCommandsSequenceComponent,int,EcsPool_TComponent_).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Set<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int, Saber7ooth.LeoEcsSaber.EcsPool<TComponent>)') | |
+| [Set&lt;TComponent&gt;(this CommandsSequenceComponent, int)](EcbComponentsExtensions.Set_TComponent_(thisCommandsSequenceComponent,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.Set<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int)') | |
+| [SetOrAdd&lt;TComponent&gt;(this CommandsSequenceComponent, int, EcsPool&lt;TComponent&gt;)](EcbComponentsExtensions.SetOrAdd_TComponent_(thisCommandsSequenceComponent,int,EcsPool_TComponent_).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.SetOrAdd<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int, Saber7ooth.LeoEcsSaber.EcsPool<TComponent>)') | |
+| [SetOrAdd&lt;TComponent&gt;(this CommandsSequenceComponent, int)](EcbComponentsExtensions.SetOrAdd_TComponent_(thisCommandsSequenceComponent,int).md 'Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.SetOrAdd<TComponent>(this Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent, int)') | |
