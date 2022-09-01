@@ -1,0 +1,3 @@
+[submodule "XmlToMdForJustTheDocs"]
+	path = XmlToMdForJustTheDocs
+	url = https://github.com/Prographers/XmlToMdForJustTheDocs.git
