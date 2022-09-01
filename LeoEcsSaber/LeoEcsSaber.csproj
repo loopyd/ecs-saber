@@ -5,15 +5,8 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <DefineConstants>WINDOWS</DefineConstants>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
-  </PropertyGroup>
-  <PropertyGroup>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <!-- <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>$(MSBuildThisFileDirectory)\LeoEcsSaber.XML</DocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-  </PropertyGroup> -->
   <Target Name="SpicNSpan"  AfterTargets="Clean">
       <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
       <RemoveDir Directories="$(BaseOutputPath)" />

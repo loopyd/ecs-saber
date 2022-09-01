@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/LeoEcsSaber/LeoEcsSaber.csproj",
+                "${workspaceFolder}/LeoEcsSaber.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "clean",
-                "${workspaceFolder}/LeoEcsSaber/LeoEcsSaber.csproj"
+                "${workspaceFolder}/LeoEcsSaber.sln"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -29,7 +29,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/LeoEcsSaber/LeoEcsSaber.csproj",
+                "${workspaceFolder}/LeoEcsSaber.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -43,7 +43,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/LeoEcsSaber/LeoEcsSaber.csproj"
+                "${workspaceFolder}/LeoEcsSaber.sln"
             ],
             "problemMatcher": "$msCompile"
         }
