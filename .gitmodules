@@ -1,0 +1,4 @@
+[submodule "LeoEcsSaber"]
+	path = ecs-saber
+	url = https://github.com/loopyd/ecs-saber.git
+	branch = master
