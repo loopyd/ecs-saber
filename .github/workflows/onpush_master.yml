@@ -11,8 +11,6 @@ permissions:
 
 jobs:
   build_lib:
-    runs-on: ubuntu-latest
-    environment: staging
     name: Build Library
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
     with:
@@ -23,7 +21,7 @@ jobs:
       src_branch: master
       repo_org: loopyd
       repo_project: ecs-saber
-      
+
   build_docs:
     name: Build Documentation
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
