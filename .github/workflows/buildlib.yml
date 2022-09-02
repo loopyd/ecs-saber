@@ -66,7 +66,7 @@ jobs:
           name: .net-app
           path: |
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
-        if: ${{ configuration == 'Release' }}
+        if: ${{ inputs.configuration == 'Release' }}
 
       - name: Upload Debug artifacts for deployment workflow
         uses: actions/upload-artifact@v3
@@ -76,4 +76,4 @@ jobs:
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.deps
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.pdb
-        if: ${{ configuration == 'Debug' }}
+        if: ${{ inputs.configuration == 'Debug' }}
