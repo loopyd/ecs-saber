@@ -10,13 +10,8 @@ permissions:
 
 jobs:
   on_build:
-    runs-on: ubuntu-latest
-    environment: staging
-  
-  steps:
-    - name: Build library
-      uses: ./.github/workflows/buildlib.yml@master
-      with:
-        build_docs: true
-        configuration: debug
-        library_name: LeoEcsSaber
+    uses: ./.github/workflows/buildlib.yml@master
+    with:
+      build_docs: true
+      configuration: debug
+      library_name: LeoEcsSaber
