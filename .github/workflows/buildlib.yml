@@ -20,9 +20,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: staging
-    strategy:
-      matrix:
-        dotnet-version: ['3.1.x', '6.0.x' ]
 
     steps:
       - name: Clone master branch
@@ -31,17 +28,23 @@ jobs:
           ref: master
         if: ${{ inputs.build_docs == false }}
 
-      - name: Clone DocsFX branch with submodules
+      - name: Clone DocsFX branch
         uses: actions/checkout@v3
         with:
           ref: docsfx
-          submodules: true
         if: ${{ inputs.build_docs == true }}
 
-      - name: Set up .NET ${{ matrix.dotnet-version }}
+      - name: Set up .NET SDK for build library
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: 3.1.x
+        if: ${{ inputs.build_docs == false }}
+
+      - name: Set up .NET SDK for build docs
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0
+        if: ${{ inputs.build_docs == true }}
       
       - name: Set up dependency caching for faster builds
         uses: actions/cache@v3
@@ -51,29 +54,41 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget
 
-      - name: Install dependencies
-        run: dotnet restore
+      - name: Build library
+        run: |
+          dotnet restore
+          dotnet build --configuration ${{ inputs.configuration }}
+          dotnet publish -c ${{ env.CONFIGURATION }} -o ${{ env.DOTNET_ROOT }}/myapp
+        shell: bash
+        if: ${{ inputs.build_docs == false }}
 
-      - name: Build with dotnet
-        run: dotnet build --configuration ${{ inputs.configuration }}
-
-      - name: Publish build with dotnet
-        run: dotnet publish -c ${{ env.CONFIGURATION }} -o ${{ env.DOTNET_ROOT }}/myapp
+      - name: Build docs
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
+        shell: bash
+        if: ${{ inputs.build_docs == true }}
   
       - name: Upload Release artifacts for deployment workflow
         uses: actions/upload-artifact@v3
         with:
-          name: .net-app
+          name: ${{ inputs.library_name }}
           path: |
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
-        if: ${{ inputs.configuration == 'Release' }}
+        if: ${{ inputs.configuration == 'Release' && inputs.build_docs == false }}
 
       - name: Upload Debug artifacts for deployment workflow
         uses: actions/upload-artifact@v3
         with:
-          name: .net-app
+          name: ${{ inputs.library_name }}
           path: |
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.deps
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.pdb
-        if: ${{ inputs.configuration == 'Debug' }}
+        if: ${{ inputs.configuration == 'Debug' && inputs.build_docs == false }}
+      
+      - name: Upload docs artifacts for deployment workflow
+        with:
+          name: ${{ inputs.library_name }}
+          path: docs
+        if: ${{ inputs.build_docs == true }}
