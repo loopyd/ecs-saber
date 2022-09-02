@@ -1,6 +1,7 @@
 # GitHub CI/CO .NET DocFX Pipeline
 
 > **Copyright:** (C) 2022 by Robert Smith <nightwintertooth@gmail.com>
+
 > **Licensed under:**  DBAD License -> https://dbad-license.org/
 
 Hello!  Looks like you found a hidden gem.  This subrepository is configured to build/test/deploy .NET with DocFX for this repository with github workflows.
