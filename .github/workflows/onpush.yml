@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   on_build:
-    uses: ./.github/workflows/buildlib.yml@master
+    uses: ./.github/workflows/buildlib.yml
     with:
       build_docs: true
       configuration: debug
