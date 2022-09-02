@@ -1,0 +1,1184 @@
+{
+  "homepages": [],
+  "source_base_path": "E:/source/repos/work/ecs-saber/DocFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsEntityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsEntityExtensions.html",
+          "hash": "fz9+lMtOeoEhx9bcdIlEP/S3uhvjhJM6IO2tU0Hecto="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsFilter.Enumerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsFilter.Enumerator.html",
+          "hash": "c4iluQ6/MrP6QAw8VcrB30rLjKY/kYTIX5ln47gGv9Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsFilter.html",
+          "hash": "r+ucnCzT5fDylQCWIvgdQ5We4zZot3y9BhB4wFOnUL8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPackedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPackedEntity.html",
+          "hash": "6cPjQXNa72nOQ+35wKh92T7E5MgBow2JbUW9sE5043g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPackedEntityWithWorld.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPackedEntityWithWorld.html",
+          "hash": "pnzra2qcUUElkVZFFnEqybP93kSV02dBQPwuPl1SQJE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPool-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsPool-1.html",
+          "hash": "Rv4RolwE0w3fThMpISmpGOciDkYAdeFq4TnH2Mgk4q0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsSystems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsSystems.html",
+          "hash": "0B9DtpJwtKo3Gf1QvEepl3YbaSd2bWVRNoFPR0Q/PMM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.Config.html",
+          "hash": "1rfb1GgDm2ZaUfQO2FK1loz0qL3vZbkDEbsT6kbyF+4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.EntityData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.EntityData.html",
+          "hash": "pFfvU0C36PSAk1Ykr8z8F4zC0cqT/16eomjVp7e54DA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.Mask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.Mask.html",
+          "hash": "duYpHD4B/0VFUAxFAQfO+T4M7+tjeeOUiPr6LBhgeiQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.EcsWorld.html",
+          "hash": "4y3VC0ki4vzkrcv3XoP1CILHiZol4NAys+JHgPHQm2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsCustomInject-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsCustomInject-1.html",
+          "hash": "gnCBmv1ljvnG56EZcHZ8KSJ+CJsI0yTGCwxQFs6jTEU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsFilterInject-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsFilterInject-1.html",
+          "hash": "WBPbH4Zt8p+YE9oFJ+ZtWt9KHCzoomlB9tlGHGWmjTE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsFilterInject-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsFilterInject-2.html",
+          "hash": "/zVRddS0y22+Mvs/vYL+cluZkf1dZB/LZVdoqPnOV1M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsPoolInject-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsPoolInject-1.html",
+          "hash": "LmiBWpazu8p9PPb7YMFGwjd8zBHGPTNI/MVYOabpvic="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsSharedInject-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsSharedInject-1.html",
+          "hash": "koZ8GCck4irB0zh6npmCY+sHe7HJvIsRGIWyxMM3tys="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsWorldInject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.EcsWorldInject.html",
+          "hash": "9Wu8ezYl1kNkhT3ODdXNHCEJjYEWvp/IldJRpuJfLhk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-1.html",
+          "hash": "b6b7dRSsot/U8UOGHSym4zPjkSaEvVB2a6OP1g9Kdag="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-2.html",
+          "hash": "6ZegQX+leYO0YqEEbfG0kZHV9enJQoNFvEtSKNDpl6Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-3.html",
+          "hash": "9ITcdcbfV8xQ8+PrsHXy2esd9Y5TUXCk9vtdRh68mt4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Exc-4.html",
+          "hash": "6XFItwMkI4zIaWcaigY+91wmymonMCWJMeo1ko2rgXI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Extensions.html",
+          "hash": "vGIzQKQ9hVGMINkZ0M6siV0Kx5JDfn1fb49aXzqoiYs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsCustomDataInject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsCustomDataInject.html",
+          "hash": "OorCaNFpCoM8G2LRjiRzArReHpKjuWHG82igsq3OavE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsDataInject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsDataInject.html",
+          "hash": "jUZkhAHCTsueiJv2mxdnPwC0XXACjOyCuVjZtkbxLfI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsExclude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsExclude.html",
+          "hash": "bnmk5Fo9BSwvZ+zSmgduUrBwoXuwWoQB1Kp06g2/njg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsInclude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsInclude.html",
+          "hash": "WdvvhChiisSJw62fPNCtTuHJx0LkX4/rgCJfY5VJhwY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsInjectSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.IEcsInjectSystem.html",
+          "hash": "Vv7NlyClOjoQER10YUvVgvqeyEZV9yg8NFtTLu9owz8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-1.html",
+          "hash": "M8FNpOqo89w0DEe2ltJKsZUf99l2fqoBzt9akr/jsU4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-2.html",
+          "hash": "dwXjaLIW/qjiR3fUafa3JcGY2uF7SHVBDoVtxiitLc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-3.html",
+          "hash": "VC1xpkTQWmg+N/h58YzYe3fOv5oqLCSNFS9YIESKq5g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-4.html",
+          "hash": "SV+JZezn+7BJbteYFKHkUDfmxVjU2AGE5e6NaN4eFAw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-5.html",
+          "hash": "FuckcGH9aiG+qfQVVrCH4LFlTG3ffK3wPrmufKgiSww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-6.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-6.html",
+          "hash": "cycBRypJwUX4W+M6LphbHtqyYRVcVXGtK1AVtigLDy0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-7.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-7.html",
+          "hash": "gnhqZauHzst1MFv14mJpnurO+gnBI7Uqm5YEM3RnZsQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-8.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.Inc-8.html",
+          "hash": "upBOIes9Q8ESzSTEWzCtgrd8BCihH5JZn3l/orec04c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Di.html",
+          "hash": "TfepQ9rgwUPUy0+phwgTmuoxV+ffJkTwrMxxJFadKmI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.CommandsSequenceComponent.html",
+          "hash": "mxRKo5DFTBs59lgloHu4YwIUa3C+HIntXuJICJotjMI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbComponentsExtensions.html",
+          "hash": "INEFYmt+vPsCBnSdcidCk47ooNFFRVpfA2FNjAisMok="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbExtensions.html",
+          "hash": "Px3DNlOwdO5uEOASTt/15zx+zlOQR0s0sgF3ZsSsuLE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EcbSystem.html",
+          "hash": "2eC7rEBslXOtE7ftkwGU9+DW3spYe3mTaB99tQstCcs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.EntityCommandBuffer.html",
+          "hash": "UG02beiXwFnG6QkegzVmM57ojJu59KtUorSUvo9yTH8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.FastList-1.Enumerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.FastList-1.Enumerator.html",
+          "hash": "PeD0NmFwM75Xh2htsZ2xziyAAr5BBme+3Pd2PzS6xMo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.FastList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.FastList-1.html",
+          "hash": "bi+bDY1su5E2kWXm2/jEV0IHo87iJc2Sq7HzcWOlHcw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ECB.html",
+          "hash": "BF5fYpowPP194L2jGw1aqJY+spLbyC8ZC+H40UpLol0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.EventsBus.DestroyEventsSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.EventsBus.DestroyEventsSystem.html",
+          "hash": "hvOmBqToSUNCGUTEsO0iu7kapqNwiKFLJaEqgRYhdNc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.EventsBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.EventsBus.html",
+          "hash": "P5dhaFOyTsjKnqRI55nVbM2f7EAheCz2Rb3QwGpHNZw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.IEventReplicant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.IEventReplicant.html",
+          "hash": "nT2EqYP5EZ8teaAmr8PFtBy/joFlDxCtH+0dvVRpowc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.IEventSingleton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.IEventSingleton.html",
+          "hash": "XGtCPmZiSWwsgsCebXrYMDq9Bltua5R4bkM0HifbUJc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Events.html",
+          "hash": "/u7YB4wZ3S3TArllmYGW+vSMS65g2NPeTy0jA0k7I0k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.DelHereSystem-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.DelHereSystem-1.html",
+          "hash": "IwiQiP26Ou1Bn43hhNardTw4P0kG2swbIXQQCfjAHYE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.EcsGroupSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.EcsGroupSystem.html",
+          "hash": "4RzCsnEbu6f9eKZ4I4Zdbx8D6evGN3Wqt2GwVjTLmCE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.EcsGroupSystemState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.EcsGroupSystemState.html",
+          "hash": "g8aD13qfHeQkT7n7zL0xXTE3tBXZ4+El6dj9E1vnw7A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.Extensions.html",
+          "hash": "M6pJWmp1awetk+Zmo7MMTMgTsCLjp7wLx4ytTYmn4Kg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems.html",
+          "hash": "teEzcN3N3zK2vy33+6iIlwnHUHV+XxPKLBoKUmltgrg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsEntityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsEntityExtensions.html",
+          "hash": "K/7CGhdg7EM7/BVnQMypXjsMDLmxmreCm/sHMmDKI8Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsPackedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsPackedEntity.html",
+          "hash": "czHuL5wgsrJv8ng+MirvF6WkBLZNl5rzVrcNe+fkHWY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsPackedEntityWithWorld.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.EcsPackedEntityWithWorld.html",
+          "hash": "Ai2TjTVBM3kRF+5aZuvvWLtmLowjDvfL2h6BH9xet6Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.PackedEntity.html",
+          "hash": "3vuSqvFhMSWxSQiGnTbrTW4o7NCfV38rNX+FbE0tRxk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.EcsInjectAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.EcsInjectAttribute.html",
+          "hash": "63RtqXuDURTM1Q+y80//rvXeHEQwGIv/hHjUb3QxyI4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.shared.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.shared.Shared.html",
+          "hash": "0GSOYc8R3sesRtDj/qkR7wP2oTsEuJxeadjFlrkodiM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.shared.html",
+          "hash": "YZCl0oPCCE8/x27/73WPSC+mEHmOBJAjJfmxvPkAUHo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Shared.html",
+          "hash": "pcatlQ59I9+o1+hIME7GrclPa7jzpP2edUhz+BEAZsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-2.html",
+          "hash": "wsrJVkav2A+FO2ZnYXLyFzLRa5ritW+au2MXr99ymCE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-3.html",
+          "hash": "DanaBaRnkJSLHLB6Ej3jZ00/vs61ksxqIY/rCu3nSIM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-4.html",
+          "hash": "7n8QA4m690NRdyQ87DT6P75FBiKcnijK6Yu/+Mt7JIg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystem-5.html",
+          "hash": "wVLE3lyPmBP1w0I/gvq9KAGQdqu0DUd1sGw6HMsXPwg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystemBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.EcsThreadSystemBase.html",
+          "hash": "GCZazRC6qriMSHTlNV/2+NADjt3Yw1jYcuvp105nt18="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-1.html",
+          "hash": "iWlxlrFIt8q76CyP373+uLfhOdb57Yx9F6uc6UcmXfc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-2.html",
+          "hash": "0ljIg5NY0sLT5j+fJMUjsjLwcw0NmVgB8FNubYf4VEQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-3.html",
+          "hash": "wVjkRGoWTE9K27Ancp33Sq+3WBau8vZppa6WU3+HFWA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThread-4.html",
+          "hash": "Ehee9oUZMLxLGnKl99O49aTeIAagylNUuZezTQjN2nA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThreadBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.IEcsThreadBase.html",
+          "hash": "2E1CkX+gB1PAbOFUnyC6Pn1eRFhpIJNNekOws7F5ZKQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.Extensions.Threading.html",
+          "hash": "23yO3ouYcyr0FCq808YsIG3kvcuyNJC6euT+4J+Zy7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsAutoReset-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsAutoReset-1.html",
+          "hash": "wFk7iQWaBu2qpsguYivN1hrG0QwJ9YpICWw9NLyi868="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsDestroySystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsDestroySystem.html",
+          "hash": "pHBMcI0IZKbhgauli8DL7ztyL1wnMsbhDL1oWrCVa7Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsFilterEventListener.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsFilterEventListener.html",
+          "hash": "JDf9OcpTFEUeysJih08tdKMkzgYG+EzIprYVpP7u2x4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsInitSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsInitSystem.html",
+          "hash": "tTdm+V0aQmxa+besAtn32Oiedib+mojOYoHyqOpLnwA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPool.html",
+          "hash": "CdRl+8vL/UC6l6mMmTnJhY3KmJAGB/VFqbCyscGIIds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPostDestroySystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPostDestroySystem.html",
+          "hash": "A1vtSiCnAvkEu1uo8wH88HUKh8vXbS75YVskFvqm74U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPreInitSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsPreInitSystem.html",
+          "hash": "oHlEu7zIShAcxpZu5pJ2dMLA6bsdCz2byOaTnUW8MIs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsRunSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsRunSystem.html",
+          "hash": "drAJ8Kv/X5lKKh2e6byJ8YQxIyMm3oVmvVrz3vN93h8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsSystem.html",
+          "hash": "3+Dr1SVceqBkf1SmAqTyfdUjqlZbho5EIkfxgt6igx8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsSystems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsSystems.html",
+          "hash": "vUKtgGpPNpHCp+TBcFWS/F8BPjpMdL5gMKXF7/g+Qkc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsWorldEventListener.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.IEcsWorldEventListener.html",
+          "hash": "9etzVJyQnaBm/Q42iTN+z9+U3Ol144KYiLQn+moY47E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Saber7ooth.LeoEcsSaber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Saber7ooth.LeoEcsSaber.html",
+          "hash": "FV0G7vChbkPeNLNA+DHEDnc5in6mR/Ol3pzypfNZVS0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "saFqvz6O7gRUA+jnMMwc+dSIrjQH7/76HhcH4kY1I+w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "oMtVtFyPTkOrv5FgDFZmvHNUoyiLi6ncBcMv7VjVf0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/building.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/building.html",
+          "hash": "vISBdRi5tnfKGvQrmyH5oa39DXtaxEaHmNxROCxKsKs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/compatibility.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/compatibility.html",
+          "hash": "Nh8D2ckfDZubN/zBzfWBTtyvpiPK8dj4kG4JosvwL90="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/index.html",
+          "hash": "Jk6PQuJkn/XtVOFj2D1+AsB8YFcGq/rSALR5I2P4kKo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/requirements.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/requirements.html",
+          "hash": "H2lcajlcgWNHhr/M3Y4yOPZsmoaWkuT9eu0JVAfpYc0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "6bf/9TIhriBKzcTGYblPSXh8AQ4kvWO0xxohGaZFHqo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "DVqOH6h33I4B2JPOEXL3hUbLYeESNop1j+GPJIKlWmI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "mDfvi7YvMY2Yg/kBeee/81gIo3xbuK/glKB3kAb60Vg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 85,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

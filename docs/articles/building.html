@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Building from source code </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Building from source code ">
+    <meta name="generator" content="docfx 2.59.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="building-from-source-code">Building from source code</h1>
+
+<ol>
+<li>Clone the repository to a subfolder of your project root directory.</li>
+<li>Add the project solution to your project's solution by running <code>dotnet sln add .\LeoEcsSaber\LeoEcsSaber.sln</code> in the project root.  This will append the solution included in the project to yours.</li>
+</ol>
+<h2 id="in-visual-studio-code">In Visual Studio Code</h2>
+<p>The project works out of the box with Visual Studio code, and includes a <code>.vscode</code> subdirectory with a <code>tasks.json</code> file.</p>
+<h3 id="debug-configuration">Debug Configuration</h3>
+<ol start="2">
+<li>Open the project folder in Visual Studio Code:  <code>code .</code></li>
+<li>Press <code>Ctrl + P</code> to bring up the command panel and select <code>Run Task</code>, then select the <code>[debug] leoecssaber-build</code> task.</li>
+<li>Output is produced in <code>LeoEcsSaber/bin/Debug/netcoreapp3.1/LeoEcsSaber.dll</code>.  You can include a <code>&lt;PackageReference&gt;</code> in your <code>.csproj</code></li>
+</ol>
+<h3 id="release-configuration">Release Configuration</h3>
+<ol start="2">
+<li>Open the project folder in Visual Studio Code:  <code>code .</code></li>
+<li>Press <code>ctrl + P</code> to bring up the command panel and select <code>Run Task</code>, then select the <code>[debug] leoecssaber-build</code> task.</li>
+</ol>
+<h2 id="in-visual-studio-ide">In Visual Studio IDE</h2>
+<p>Becuase of the way I have structured the project by dropping dependency references manually into <code>.csproj</code> for it, it will work in both IDEs.   In Visual Studio, you'll simply right-click your solution after merging with the dotnet tools, with the target set to <code>Debug | Any CPU</code> or <code>Release | Any CPU</code>, respectively.</p>
+<h3 id="initial-fixups">Initial fixups</h3>
+<p>You need to include a <code>&lt;ProjectReference&gt;</code> in your <code>.csproj</code> in an <code>&lt;ItemGroup&gt;</code> that ignores target framework version: <code>&lt;SkipGetTargetFrameworkProperties&gt;true&lt;/SkipGetTargetFrameworkProperties&gt;</code>, and <code>&lt;ReferenceOutputAssembly&gt;false&lt;/ReferenceOutputAssembly&gt;</code> to work around an MsBuild bug when using Visual Studio IDE at all.  Then you can <code>&lt;PackageReference&gt;</code> the DLL directly.  This stops a string of confusing build erorrs within Visual Studio IDE by defining the symbols in your project, but never actually referencing a project from a different .NET build target directly.</p>
+<p>As the LeoEcsSaber project works fundamentally on core data types available in all of <code>.NET</code> targets, it is safe to do this inside of Visual Studio, but not outside.   Visual Studio IDE will perform the appropriate retargetting automatically at built time, and generate appropriate <code>.targets</code> files.  This stops that functionality from interfering with MsBuild's in the IDE and producing a ton of incomprehensable gobbledegook errors when trying to use this library.</p>
+<h3 id="debug-configuration-1">Debug Configuration</h3>
+<ol start="2">
+<li>Open your Solution File in Visual Studio 2022</li>
+<li>Right click the solution file for your project and open Solution Properties, change the build target in the properties page for LeoEcs solution underneath your project's &quot;Debug&quot; target to &quot;Debug&quot;.</li>
+<li>Select &quot;Debug&quot; and &quot;Any CPU&quot; as your solution's base target from the IDE's toolbar.</li>
+<li>Build your solution.</li>
+<li>Output is produced in <code>LeoEcsSaber/bin/Debug/netcoreapp3.1/LeoEcsSaber.dll</code> in a seperate MsBuild task, and is referenced in your project when it goes to build correctly.</li>
+</ol>
+<h3 id="release-configuration-1">Release Configuration</h3>
+<ol start="2">
+<li>Open your Solution File in Visual Studio 2022</li>
+<li>Right click the solution file for your project and open Solution Properties, change the build target in the properties page for LeoEcs solution underneath your project's &quot;Release&quot; target to &quot;Release&quot;.</li>
+<li>Select &quot;Release&quot; and &quot;Any CPU&quot; as your solution's base target from the IDE's toolbar.</li>
+<li>Build your solution.</li>
+<li>Output is produced in <code>LeoEcsSaber/bin/Debug/netcoreapp3.1/LeoEcsSaber.dll</code> in a seperate MsBuild task, and is referenced in your project when it goes to build correctly.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/loopyd/ecs-saber/blob/master/DocFx/articles/building.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
