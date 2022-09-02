@@ -1,9 +1,9 @@
-name: Master Build Pipeline
+name: Release Build
 
 on:
   push:
     branches:
-      - "master"
+      - master
   workflow_dispatch:
 
 permissions:
@@ -19,17 +19,5 @@ jobs:
       library_name: LeoEcsSaber
       library_sdk_version: 3.1.x
       src_branch: master
-      repo_org: loopyd
-      repo_project: ecs-saber
-
-  build_docs:
-    name: Build Documentation
-    uses: loopyd/ecs-saber/.github/workflows/build.yml@master
-    with:
-      build_docs: true
-      build_configuration: debug
-      library_name: LeoEcsSaber
-      src_branch: master
-      docsfx_branch: docsfx
       repo_org: loopyd
       repo_project: ecs-saber

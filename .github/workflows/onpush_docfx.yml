@@ -1,16 +1,17 @@
-name: DocsFx Rebuild pipeline
+name: DocFX Build 
 
 on:
   push:
     branches:
-      - "docfx"
+      - master
+      - docfx
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  build_lib:
+  build_docs:
     name: Build Documentation
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
     with:
