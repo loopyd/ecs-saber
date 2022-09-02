@@ -1,6 +1,6 @@
 # LeoECS Saber Fork
 
-The definitive way to run LeoECS Entity Component System engine.
+The definitive way to run LeoECS Entity Component System Framework.
 
 [![Release Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml/badge.svg?branch=master)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml) [![DocFX Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml/badge.svg)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml)
 
