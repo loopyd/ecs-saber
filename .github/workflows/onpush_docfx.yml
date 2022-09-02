@@ -16,7 +16,7 @@ jobs:
     
     steps:
       - name: Build Documentation
-        uses: ./.github/workflows/build.yml@master
+        uses: loopyd/ecs-saber/.github/workflows/build.yml@master
         with:
           build_docs: true
           configuration: debug

@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Build Library
-        uses: ./.github/workflows/build.yml@master
+        uses: loopyd/ecs-saber/.github/workflows/build.yml@master
         with:
           build_docs: false
           configuration: release
@@ -27,7 +27,7 @@ jobs:
           repo_project: ecs-saber
         
       - name: Build Documentation
-        uses: ./.github/workflows/build.yml
+        uses: loopyd/ecs-saber/.github/workflows/build.yml@master
         with:
           build_docs: true
           configuration: debug
