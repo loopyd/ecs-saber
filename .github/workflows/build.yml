@@ -92,7 +92,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration ${{ inputs.build_configuration }}
-          dotnet publish -c ${{ env.CONFIGURATION }} -o ${{ env.DOTNET_ROOT }}/myapp
+          dotnet publish -c ${{ inputs.build_configuration }} -o ${{ env.DOTNET_ROOT }}/myapp
         shell: bash
         if: ${{ inputs.build_docs == false }}
 
