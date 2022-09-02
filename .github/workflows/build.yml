@@ -17,7 +17,7 @@
 #
 # Or choose not to donate, just "Don't Be A Dick" - The Buddah.
 
-name: Reusable DocFX build workflow
+name: Saber7ooth's DocFX Library Build workflow
 
 on:
   workflow_call:
@@ -38,6 +38,12 @@ on:
         required: true
         type: string
       docsfx_branch:
+        required: false
+        type: string
+      repo_org:
+        required: false
+        type: string
+      repo_project:
         required: false
         type: string
 
@@ -93,7 +99,7 @@ jobs:
       - name: Build docs
         run: |
           chmod +x ./build.sh
-          ./build.sh "${{ inputs.build_configuration }}" "${{ inputs.src_branch }}"
+          ./build.sh "${{ inputs.build_configuration }}" "${{ inputs.src_branch }}" "${{ inputs.repo_org }}" "${{ inputs.repo_project }}" "${{ inputs.library_name }}"
         shell: bash
         if: ${{ inputs.build_docs == true }}
   

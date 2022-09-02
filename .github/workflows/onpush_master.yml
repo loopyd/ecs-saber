@@ -1,4 +1,4 @@
-name: Push pipeline
+name: Master Build Pipeline
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
           library_name: LeoEcsSaber
           library_sdk_version: 3.1.x
           src_branch: master
+          repo_org: loopyd
+          repo_project: ecs-saber
         
       - name: Build Documentation
         uses: ./.github/workflows/build.yml
@@ -32,3 +34,5 @@ jobs:
           library_name: LeoEcsSaber
           src_branch: master
           docsfx_branch: docsfx
+          repo_org: loopyd
+          repo_project: ecs-saber

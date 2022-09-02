@@ -1,4 +1,4 @@
-name: Push pipeline
+name: DocsFx Rebuild pipeline
 
 on:
   push:
@@ -23,3 +23,5 @@ jobs:
           library_name: LeoEcsSaber
           src_branch: master
           docsfx_branch: docsfx
+          repo_org: loopyd
+          repo_project: ecs-saber
