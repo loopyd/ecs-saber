@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoEcsSaber", "LeoEcsSaber\LeoEcsSaber\LeoEcsSaber.csproj", "{53233183-DB52-44D6-8090-068B692D8C3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoEcsSaber", "ecs-saber\LeoEcsSaber\LeoEcsSaber.csproj", "{53233183-DB52-44D6-8090-068B692D8C3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFx", "DocFx\DocFx.csproj", "{37BE9447-26B1-48BE-8633-9BFD2464CB17}"
 EndProject
