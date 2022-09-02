@@ -65,7 +65,7 @@ jobs:
       - name: Build docs
         run: |
           chmod +x ./build.sh
-          ./build.sh
+          ./build.sh "${{ inputs.configuration }}"
         shell: bash
         if: ${{ inputs.build_docs == true }}
   
