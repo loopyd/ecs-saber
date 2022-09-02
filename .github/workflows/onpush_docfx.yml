@@ -15,7 +15,7 @@ jobs:
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
     with:
       build_docs: true
-      configuration: debug
+      build_configuration: debug
       library_name: LeoEcsSaber
       src_branch: master
       docsfx_branch: docsfx
