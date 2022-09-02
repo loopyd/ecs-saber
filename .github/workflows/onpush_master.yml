@@ -13,26 +13,25 @@ jobs:
   build_lib:
     runs-on: ubuntu-latest
     environment: staging
-
-    steps:
-      - name: Build Library
-        uses: loopyd/ecs-saber/.github/workflows/build.yml@master
-        with:
-          build_docs: false
-          configuration: release
-          library_name: LeoEcsSaber
-          library_sdk_version: 3.1.x
-          src_branch: master
-          repo_org: loopyd
-          repo_project: ecs-saber
-        
-      - name: Build Documentation
-        uses: loopyd/ecs-saber/.github/workflows/build.yml@master
-        with:
-          build_docs: true
-          configuration: debug
-          library_name: LeoEcsSaber
-          src_branch: master
-          docsfx_branch: docsfx
-          repo_org: loopyd
-          repo_project: ecs-saber
+    name: Build Library
+    uses: loopyd/ecs-saber/.github/workflows/build.yml@master
+    with:
+      build_docs: false
+      configuration: release
+      library_name: LeoEcsSaber
+      library_sdk_version: 3.1.x
+      src_branch: master
+      repo_org: loopyd
+      repo_project: ecs-saber
+      
+  build_docs:
+    name: Build Documentation
+    uses: loopyd/ecs-saber/.github/workflows/build.yml@master
+    with:
+      build_docs: true
+      configuration: debug
+      library_name: LeoEcsSaber
+      src_branch: master
+      docsfx_branch: docsfx
+      repo_org: loopyd
+      repo_project: ecs-saber
