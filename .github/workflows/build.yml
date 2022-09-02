@@ -1,4 +1,23 @@
-name: Reusable build workflow
+# Origin Repository:  loopyd/ecs-saber
+#
+# Copyright: (C) 2022 by Robert Smith <nightwintertooth@gmail.com>
+# Licensed under:  DBAD License -> https://dbad-license.org/
+# 
+# I made efforts to make this modular so you could reuse it (and so can I)
+#
+# The way I have structured it is by using branches to keep docsfx and
+# gh-pages isolated on they own branches so your master/main repo is very
+# neat and orderly.  gh-pages is completely wiped, there is no need to
+# manage it anymore thanks to docsfx static content generator.
+#
+# As this thing's an effective drop in replacement for Jekyll for
+# github pages, toss me some spare dev cash if you like it:
+#
+#   https://www.paypal.com/paypalme/snowflowerwolf
+#
+# Or choose not to donate, just "Don't Be A Dick" - The Buddah.
+
+name: Reusable DocFX build workflow
 
 on:
   workflow_call:
@@ -6,11 +25,20 @@ on:
       build_docs:
         required: true
         type: boolean
-      configuration:
+      build_configuration:
         required: true
         type: string
       library_name:
         required: true
+        type: string
+      library_sdk_version:
+        required: false
+        type: string
+      src_branch:
+        required: true
+        type: string
+      docsfx_branch:
+        required: false
         type: string
 
 permissions:
@@ -22,22 +50,22 @@ jobs:
     environment: staging
 
     steps:
-      - name: Clone master branch
+      - name: Clone ${{ inputs.src_branch }} branch
         uses: actions/checkout@v3
         with:
-          ref: master
+          ref: ${{ inputs.src_branch }}
         if: ${{ inputs.build_docs == false }}
 
       - name: Clone DocsFX branch
         uses: actions/checkout@v3
         with:
-          ref: docsfx
+          ref: ${{ inputs.docsfx_branch }}
         if: ${{ inputs.build_docs == true }}
 
       - name: Set up .NET SDK for build library
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 3.1.x
+          dotnet-version: ${{ inputs.library_sdk_version }}
         if: ${{ inputs.build_docs == false }}
 
       - name: Set up .NET SDK for build docs
@@ -57,7 +85,7 @@ jobs:
       - name: Build library
         run: |
           dotnet restore
-          dotnet build --configuration ${{ inputs.configuration }}
+          dotnet build --configuration ${{ inputs.build_configuration }}
           dotnet publish -c ${{ env.CONFIGURATION }} -o ${{ env.DOTNET_ROOT }}/myapp
         shell: bash
         if: ${{ inputs.build_docs == false }}
@@ -65,7 +93,7 @@ jobs:
       - name: Build docs
         run: |
           chmod +x ./build.sh
-          ./build.sh "${{ inputs.configuration }}"
+          ./build.sh "${{ inputs.build_configuration }}" "${{ inputs.src_branch }}"
         shell: bash
         if: ${{ inputs.build_docs == true }}
   
@@ -75,21 +103,23 @@ jobs:
           name: ${{ inputs.library_name }}
           path: |
             ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
-        if: ${{ inputs.configuration == 'Release' && inputs.build_docs == false }}
+        if: ${{ inputs.build_configuration == 'Release' && inputs.build_docs == false }}
 
       - name: Upload Debug artifacts for deployment workflow
         uses: actions/upload-artifact@v3
         with:
           name: ${{ inputs.library_name }}
           path: |
-            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
-            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.deps
-            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.pdb
-        if: ${{ inputs.configuration == 'Debug' && inputs.build_docs == false }}
+            ${{env.DOTNET_ROOT}}/myapp/*.dll
+            ${{env.DOTNET_ROOT}}/myapp/*.so
+            ${{env.DOTNET_ROOT}}/myapp/*.lib
+            ${{env.DOTNET_ROOT}}/myapp/*.deps
+            ${{env.DOTNET_ROOT}}/myapp/*.pdb
+        if: ${{ inputs.build_configuration == 'Debug' && inputs.build_docs == false }}
       
       - name: Upload docs artifacts for deployment workflow
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.library_name }}
+          name: ${{ inputs.library_name }}-docs
           path: docs
         if: ${{ inputs.build_docs == true }}

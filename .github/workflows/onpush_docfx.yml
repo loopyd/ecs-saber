@@ -1,0 +1,25 @@
+name: Push pipeline
+
+on:
+  push:
+    branches:
+      - "docfx"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build_lib:
+    runs-on: ubuntu-latest
+    environment: staging
+    
+    steps:
+      - name: Build Documentation
+        uses: ./.github/workflows/build.yml
+        with:
+          build_docs: true
+          configuration: debug
+          library_name: LeoEcsSaber
+          src_branch: master
+          docsfx_branch: docsfx
