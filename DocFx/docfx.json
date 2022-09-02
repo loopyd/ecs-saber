@@ -1,0 +1,64 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../",
+          "files": [
+            "LeoEcsSaber/**.cs"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "netcoreapp3.1"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**.yml", "**.md"
+        ],
+        "src": "api",
+        "dest": "api"
+      },
+      {
+        "files": [
+          "articles/**.md", "articles/toc.yml",
+          "*.md", "toc.yml",
+          "api/toc.yml", "api/**.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "articles/images/**"
+        ]
+      }
+    ],
+    "overwrite": "specs/*.md",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "templates/saber"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": true,
+    "disableGitFeatures": false,
+    "dest": "../docs",
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ]
+  }
+}

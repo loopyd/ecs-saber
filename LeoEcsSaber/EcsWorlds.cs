@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace Saber7ooth.LeoEcsSaber {
+
     public class EcsWorld {
         internal EntityData[] Entities;
         int _entitiesCount;
