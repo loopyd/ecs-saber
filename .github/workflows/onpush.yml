@@ -15,7 +15,7 @@ jobs:
   
   steps:
     - name: Build library
-      using: ./.github/workflows/buildlib.yml@master
+      using: loopyd/ecs-saber/.github/workflows/buildlib.yml@master
       with:
         build_docs: true
         configuration: debug
