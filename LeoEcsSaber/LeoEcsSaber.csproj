@@ -7,9 +7,6 @@
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
   <Target Name="SpicNSpan" AfterTargets="Clean">
     <RemoveDir Directories="$(BaseIntermediateOutputPath)"/>
     <RemoveDir Directories="$(BaseOutputPath)"/>
