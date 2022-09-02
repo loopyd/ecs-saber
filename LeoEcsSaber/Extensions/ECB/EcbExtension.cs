@@ -282,9 +282,13 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 }
             } 
 #if DEBUG
-                throw new NullReferenceException($"EntityCommandBuffer from {nameof(TEcbSystem)} doesn't exist.");
+            throw new NullReferenceException($"EntityCommandBuffer from {nameof(TEcbSystem)} doesn't exist.");
 #endif
-            // FIX: return null is implied by compiler.
+            // UNFIX:  Surpress warning for successful compilation on Linux 
+            //         .NET core.
+            #pragma warning disable CS0162
+            return null;
+            #pragma warning restore CS0162
         }
 
         #region PublicAPI
