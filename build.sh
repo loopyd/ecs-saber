@@ -6,7 +6,7 @@ git clone https://github.com/loopyd/ecs-saber.git
 cd ./ecs-saber
 git checkout master
 git clean -dxf
-mkdir LeoEcsSaber
+mkdir ../LeoEcsSaber
 cp -rfv ./LeoEcsSaber/* ../LeoEcsSaber/
 cd ../
 rm -rfv ./ecs-saber
