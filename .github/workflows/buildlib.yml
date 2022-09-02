@@ -1,0 +1,79 @@
+name: Reusable build workflow
+
+on:
+  workflow_call:
+    inputs:
+      build_docs:
+        required: true
+        type: boolean
+      configuration:
+        required: true
+        type: string
+      library_name:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: staging
+    strategy:
+      matrix:
+        dotnet-version: ['3.1.x', '6.0.x' ]
+
+    steps:
+      - name: Clone master branch
+        uses: actions/checkout@v3
+        with:
+          ref: master
+        if: ${{ inputs.build_docs == false }}
+
+      - name: Clone DocsFX branch with submodules
+        uses: actions/checkout@v3
+        with:
+          ref: docsfx
+          submodules: true
+        if: ${{ inputs.build_docs == true }}
+
+      - name: Set up .NET ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      
+      - name: Set up dependency caching for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build with dotnet
+        run: dotnet build --configuration ${{ inputs.configuration }}
+
+      - name: Publish build with dotnet
+        run: dotnet publish -c ${{ env.CONFIGURATION }} -o ${{ env.DOTNET_ROOT }}/myapp
+  
+      - name: Upload Release artifacts for deployment workflow
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: |
+            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
+        if: ${{ configuration == 'Release' }}
+
+      - name: Upload Debug artifacts for deployment workflow
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: |
+            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.dll
+            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.deps
+            ${{env.DOTNET_ROOT}}/myapp/${{ inputs.library_name }}.pdb
+        if: ${{ configuration == 'Debug' }}

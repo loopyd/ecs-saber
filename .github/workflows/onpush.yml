@@ -1,0 +1,25 @@
+name: Push pipeline
+
+env:
+  repo_path: "loopyd/ecs-saber"
+
+on:
+  push:
+    branches:
+      - "master"
+
+permissions:
+  contents: read
+
+jobs:
+  on_build:
+    runs-on: ubuntu-latest
+    environment: staging
+  
+  steps:
+    - name: Build library
+      using: ${{ env.repo_path }}/.github/workflows/buildlib.yml@master
+      with:
+        build_docs: true
+        configuration: debug
+        library_name: LeoEcsSaber
