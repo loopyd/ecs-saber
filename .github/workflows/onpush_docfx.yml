@@ -22,3 +22,13 @@ jobs:
       docsfx_branch: docsfx
       repo_org: loopyd
       repo_project: ecs-saber
+  
+    name: Deploy Documentation
+    uses: loopyd/ecs-saber/.github/workflows/deploy.yml@master
+    with:
+      deploy_docs: true
+      library_name: LeoEcsSaber
+      src_branch: master
+      gh_pages_branch: gh-pages
+      github_email: "nightwintertooth@gmail.com"
+      github_username: "loopyd"      

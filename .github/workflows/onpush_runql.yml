@@ -12,7 +12,7 @@ jobs:
   analyze:
     name: Analyze (Init)
     runs-on: ubuntu-latest
-    environment: staging
+    environment: testing
     permissions:
       actions: read
       contents: read
