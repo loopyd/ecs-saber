@@ -7,6 +7,7 @@
 
 using System;
 using System.Reflection;
+using System.Linq;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.Di
 {
@@ -169,13 +170,10 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di
             if (injects.Length > 0)
             {
                 var vType = typeof(T);
-                foreach (var inject in injects)
+                foreach (var inject in injects.Where(inject => vType.IsInstanceOfType(inject)))
                 {
-                    if (vType.IsInstanceOfType(inject))
-                    {
-                        Value = (T)inject;
-                        break;
-                    }
+                    Value = (T)inject;
+                    break;
                 }
             }
         }

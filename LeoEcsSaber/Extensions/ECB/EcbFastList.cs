@@ -20,7 +20,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
         public int Length => _length;
 
         private int _length;
-        private IEqualityComparer<T> _comparer;
+        private readonly IEqualityComparer<T> _comparer;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public FastList()

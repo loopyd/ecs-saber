@@ -8,17 +8,18 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 {
     public class EntityCommandBuffer
     {
-        internal static Dictionary<Type, FastList<EntityCommandBuffer>> Map = new Dictionary<Type, FastList<EntityCommandBuffer>>();
+        internal readonly static Dictionary<Type, FastList<EntityCommandBuffer>> Map = new Dictionary<Type, FastList<EntityCommandBuffer>>();
 
         internal EcsPool<CommandsSequenceComponent> CommandsSequencePool;
         internal EcsPool<CommandComponent> CommandPool;
         internal IEcbPool[] Pools;
-        internal FastList<int> Sequences;
+        internal readonly FastList<int> Sequences;
         internal FastList<int> Commands;
 
         internal EcsWorld GetBufferWorld => _bufferWorld;
@@ -273,10 +274,9 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             var key = typeof(TEcbSystem);
             if (EntityCommandBuffer.Map.TryGetValue(key, out var buffers))
             {
-                foreach (var buffer in buffers)
+                foreach (var buffer in buffers.Where(buffer => buffer.GetWorld == world))
                 {
-                    if (buffer.GetWorld == world)
-                        return buffer;
+                    return buffer;
                 }
             }
 #if DEBUG

@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace Saber7ooth.LeoEcsSaber
 {
@@ -29,7 +30,7 @@ namespace Saber7ooth.LeoEcsSaber
         public int _masksCount;
 
         bool _destroyed;
-        List<IEcsWorldEventListener> _eventListeners;
+        readonly List<IEcsWorldEventListener> _eventListeners;
 
         public void AddEventListener(IEcsWorldEventListener listener)
         {
@@ -47,13 +48,10 @@ namespace Saber7ooth.LeoEcsSaber
             _eventListeners.Remove(listener);
         }
 
-        public void RaiseEntityChangeEvent(int entity)
-        {
-            for (int ii = 0, iMax = _eventListeners.Count; ii < iMax; ii++)
-            {
-                _eventListeners[ii].OnEntityChanged(entity);
-            }
-        }
+        // FIX:  Compiled LINQ expression are faster, ForEach is to apply
+        //       a method call to aggregate.
+        public void RaiseEntityChangeEvent(int entity) => _eventListeners.ForEach(x => x.OnEntityChanged(entity));
+
 #if DEBUG 
         readonly List<int> _leakedEntities = new List<int>(512);
 
@@ -63,6 +61,7 @@ namespace Saber7ooth.LeoEcsSaber
             {
                 for (int i = 0, iMax = _leakedEntities.Count; i < iMax; i++)
                 {
+                    // TODO:  Keep going here.
                     ref var entityData = ref Entities[_leakedEntities[i]];
                     if (entityData.Gen > 0 && entityData.ComponentsCount == 0)
                     {
@@ -424,64 +423,25 @@ namespace Saber7ooth.LeoEcsSaber
         {
             var includeList = _filtersByIncludedComponents[componentType];
             var excludeList = _filtersByExcludedComponents[componentType];
-            if (added)
+            // FIX:  Optimize loop by boolean checking.
+            if (includeList != null)
             {
-                // add component.
-                if (includeList != null)
+                foreach (var filter in includeList.Where(filter => IsMaskCompatible(filter.GetMask(), entity)))
                 {
-                    foreach (var filter in includeList)
-                    {
-                        if (IsMaskCompatible(filter.GetMask(), entity))
-                        {
-#if DEBUG 
-                            if (filter.SparseEntities[entity] > 0) { throw new Exception("Entity already in filter."); }
-#endif
-                            filter.AddEntity(entity);
-                        }
-                    }
-                }
-                if (excludeList != null)
-                {
-                    foreach (var filter in excludeList)
-                    {
-                        if (IsMaskCompatibleWithout(filter.GetMask(), entity, componentType))
-                        {
-#if DEBUG 
-                            if (filter.SparseEntities[entity] == 0) { throw new Exception("Entity not in filter."); }
-#endif
-                            filter.RemoveEntity(entity);
-                        }
-                    }
+                    if (added) 
+                        filter.AddEntity(entity);
+                    else
+                        filter.RemoveEntity(entity);
                 }
             }
-            else
+            if (excludeList != null)
             {
-                // remove component.
-                if (includeList != null)
+                foreach (var filter in excludeList.Where(filter => IsMaskCompatibleWithout(filter.GetMask(), entity, componentType)))
                 {
-                    foreach (var filter in includeList)
-                    {
-                        if (IsMaskCompatible(filter.GetMask(), entity))
-                        {
-#if DEBUG
-                            if (filter.SparseEntities[entity] == 0) { throw new Exception("Entity not in filter."); }
-#endif
-                            filter.RemoveEntity(entity);
-                        }
-                    }
-                }
-                if (excludeList != null)
-                {
-                    foreach (var filter in excludeList)
-                    {
-                        if (IsMaskCompatibleWithout(filter.GetMask(), entity, componentType))
-                        {
-#if DEBUG
-                            if (filter.SparseEntities[entity] > 0) { throw new Exception("Entity already in filter."); }
-#endif
-                            filter.AddEntity(entity);
-                        }
-                    }
+                    if (added) 
+                        filter.RemoveEntity(entity);
+                    else
+                        filter.AddEntity(entity);
                 }
             }
         }
@@ -489,20 +449,10 @@ namespace Saber7ooth.LeoEcsSaber
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         bool IsMaskCompatible(EcsMask filterMask, int entity)
         {
-            for (int i = 0, iMax = filterMask.IncludeCount; i < iMax; i++)
-            {
-                if (!_pools[filterMask.Include[i]].Has(entity))
-                {
-                    return false;
-                }
-            }
-            for (int i = 0, iMax = filterMask.ExcludeCount; i < iMax; i++)
-            {
-                if (_pools[filterMask.Exclude[i]].Has(entity))
-                {
-                    return false;
-                }
-            }
+            if ( filterMask.Include.Where(x => !_pools[x].Has(entity)) != null )
+                return false;
+            if ( filterMask.Exclude.Where(x => !_pools[x].Has(entity)) != null )
+                return false;   
             return true;
         }
 

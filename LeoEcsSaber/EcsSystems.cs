@@ -4,6 +4,7 @@
 // ----------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Saber7ooth.LeoEcsSaber
 {
@@ -122,27 +123,29 @@ namespace Saber7ooth.LeoEcsSaber
 #if DEBUG
             if (_inited) { throw new System.Exception("Already initialized."); }
 #endif
-            foreach (var system in _allSystems)
+            // FIX: Optimization for performance on iterating through all 
+            // systems by using linq expressions instead.
+            var typeName = string.Empty;
+            foreach (var system in _allSystems.Where(x => x is IEcsPreInitSystem || x is IEcsInitSystem))
             {
-                if (system is IEcsPreInitSystem initSystem)
+                if (system is IEcsPreInitSystem preInitSystem)
                 {
-                    initSystem.PreInit(this);
-#if DEBUG 
-                    var worldName = CheckForLeakedEntities(this);
-                    if (worldName != null) { throw new System.Exception($"Empty entity detected in world \"{worldName}\" after {initSystem.GetType().Name}.PreInit()."); }
+                    preInitSystem.PreInit(this);
+#if DEBUG
+                    typeName = preInitSystem.GetType().Name + ".PreInit()";
 #endif
                 }
-            }
-            foreach (var system in _allSystems)
-            {
                 if (system is IEcsInitSystem initSystem)
                 {
                     initSystem.Init(this);
 #if DEBUG
-                    var worldName = CheckForLeakedEntities(this);
-                    if (worldName != null) { throw new System.Exception($"Empty entity detected in world \"{worldName}\" after {initSystem.GetType().Name}.Init()."); }
+                    typeName = initSystem.GetType().Name + ".Init()";
 #endif
                 }
+#if DEBUG
+                var worldName = CheckForLeakedEntities(this);
+                if (worldName != null) { throw new System.Exception($"Empty entity detected in world \"{worldName}\" after {typeName}."); }
+#endif
             }
 #if DEBUG
             _inited = true;
@@ -200,13 +203,9 @@ namespace Saber7ooth.LeoEcsSaber
         public static string CheckForLeakedEntities(IEcsSystems systems)
         {
             if (systems.GetWorld().CheckForLeakedEntities()) { return "default"; }
-            foreach (var pair in systems.GetAllNamedWorlds())
-            {
-                if (pair.Value.CheckForLeakedEntities())
-                {
-                    return pair.Key;
-                }
-            }
+            foreach (var pair in systems.GetAllNamedWorlds().Where(pair => pair.Value.CheckForLeakedEntities()))
+                return pair.Key;
+
             return null;
         }
 #endif

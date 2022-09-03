@@ -12,7 +12,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Threading
 {
     static class ThreadService
     {
-        static ThreadDesc[] _descs;
+        static readonly ThreadDesc[] _descs;
         static ThreadWorkerHandler _task;
         static readonly int DescsCount;
 

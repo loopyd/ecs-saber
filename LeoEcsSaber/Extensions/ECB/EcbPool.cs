@@ -17,8 +17,8 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 
     internal class EcbPool<TComponent> : IEcbPool where TComponent : struct
     {
-        public EcsPool<TComponent> SourcePool;
-        public EcsPool<TComponent> BufferPool;
+        public readonly EcsPool<TComponent> SourcePool;
+        public readonly EcsPool<TComponent> BufferPool;
 
         public EcbPool(EcsWorld sourceWorld, EcsWorld bufferWorld)
         {
