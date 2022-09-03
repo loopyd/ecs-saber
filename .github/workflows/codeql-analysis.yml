@@ -83,5 +83,10 @@ jobs:
       repo_project: ecs-saber
 
   analyze:
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+    name: Autobuild (Debug)
+    environment: staging
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: github/codeql-action/analyze@v2
