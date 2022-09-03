@@ -17,7 +17,7 @@
 #
 # Or choose not to donate, just "Don't Be A Dick" - The Buddah.
 
-name: Saber7ooth's DocFX Library Deploy Workflow
+name: Saber7ooth's DocFX Library Deploy workflow
 
 on:
   workflow_call:
@@ -46,10 +46,10 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     environment: staging
-
+    
     steps:
       - name: Clone ${{ inputs.src_branch }} branch
         uses: actions/checkout@v3
