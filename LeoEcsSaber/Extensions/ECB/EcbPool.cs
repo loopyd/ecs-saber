@@ -25,7 +25,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             SourcePool = sourceWorld.GetPool<TComponent>();
             BufferPool = bufferWorld.GetPool<TComponent>();
         }
-        
+
         public EcbPool(EcsWorld bufferWorld, EcsPool<TComponent> sourcePool)
         {
             SourcePool = sourcePool;
@@ -38,14 +38,14 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             ref var bufferComponent = ref BufferPool.Get(bufferEntity);
             sourceComponent = bufferComponent;
         }
-        
+
         public void SetToSourceEntity(int bufferEntity, int sourceEntity)
         {
             ref var sourceComponent = ref SourcePool.Get(sourceEntity);
             ref var bufferComponent = ref BufferPool.Get(bufferEntity);
             sourceComponent = bufferComponent;
         }
-        
+
         public void SetOrAddToSourceEntity(int bufferEntity, int sourceEntity)
         {
             ref var sourceComponent = ref SourcePool.GetOrAdd(sourceEntity);

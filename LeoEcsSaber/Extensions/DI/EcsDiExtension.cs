@@ -8,13 +8,15 @@
 using System;
 using System.Reflection;
 
-namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
+namespace Saber7ooth.LeoEcsSaber.Extensions.Di
+{
     public interface IEcsInjectSystem : IEcsSystem
     {
         void Inject(IEcsSystems systems, params object[] injects);
     }
     public static class Extensions
     {
+
         public static IEcsSystems Inject(this IEcsSystems systems, params object[] injects)
         {
             if (injects == null) { injects = Array.Empty<object>(); }
@@ -31,7 +33,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
 
             return systems;
         }
-
+ 
         public static void InjectToSystem(IEcsSystem system, IEcsSystems systems, object[] injects)
         {
             foreach (var f in system.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
@@ -41,7 +43,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
                 // EcsWorldInject, EcsFilterInject, EcsPoolInject, EcsSharedInject.
                 if (InjectBuiltIns(f, system, systems)) { continue; }
                 // EcsDataInject.
-                if (InjectCustoms(f, system, injects)) { }
+                if (InjectCustoms(f, system, injects)) { continue; }
             }
         }
 
@@ -69,6 +71,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
             return false;
         }
     }
+
 
     public interface IEcsDataInject
     {
@@ -155,6 +158,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
             Value = systems.GetShared<T>();
         }
     }
+
 
     public struct EcsCustomInject<T> : IEcsCustomDataInject where T : class
     {

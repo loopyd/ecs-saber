@@ -88,20 +88,20 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 Items[_length++] = items[i];
             }
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Insert(T item, int index)
         {
-            if(index >= Items.Length || index < 0)
+            if (index >= Items.Length || index < 0)
                 return;
-            
+
             if (_length >= Items.Length)
             {
                 var arr = new T[_length << 1];
                 Array.Copy(Items, arr, _length);
                 Items = arr;
             }
-            
+
             Array.Copy(Items, index, Items, index + 1, _length++);
             Items[index] = item;
         }
@@ -115,7 +115,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 Array.Copy(Items, index + 1, Items, index, _length - index);
             return removed;
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Remove(ref T item)
         {
@@ -135,7 +135,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 Array.Copy(Items, index + 1, Items, index, _length - index);
             return removed;
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Remove(ref T item, out int index)
         {
@@ -224,19 +224,19 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 Index = list._length;
             }
 
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public bool MoveNext()
             {
                 return --Index >= 0;
             }
 
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public void Reset()
             {
                 Index = List._length;
             }
 
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public void Dispose()
             {
                 List = null;

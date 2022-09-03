@@ -54,7 +54,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
                 sourceEntity = sourceWorld.NewEntity();
                 return true;
             }
-            
+
             return command.PackedEntity.Unpack(sourceWorld, out sourceEntity);
         }
 
@@ -195,7 +195,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
         // #endregion
 
         #region ecbSequence
-        
+
         public static ref CommandsSequenceComponent Sequence(this EntityCommandBuffer buffer, out EcsPackedEntity packedSeqEntity)
         {
             var world = buffer.GetBufferWorld;
@@ -213,7 +213,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             sequence.Commands.Add(cmdEntity);
             return ref ecbPool.BufferPool.Add(cmdEntity);
         }
-        
+
         public static ref TComponent Add<TComponent>(ref this CommandsSequenceComponent sequence, int entity, EcsPool<TComponent> sourcePool) where TComponent : struct
         {
             var cmdEntity = sequence.Buffer.CreateCommand<TComponent>(entity, CommandType.Add, out var ecbPool);
@@ -227,7 +227,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             sequence.Commands.Add(cmdEntity);
             return ref ecbPool.BufferPool.Add(cmdEntity);
         }
-        
+
         public static ref TComponent Set<TComponent>(ref this CommandsSequenceComponent sequence, int entity, EcsPool<TComponent> sourcePool) where TComponent : struct
         {
             var cmdEntity = sequence.Buffer.CreateCommand<TComponent>(entity, CommandType.Set, out var ecbPool);
@@ -241,14 +241,14 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             sequence.Commands.Add(cmdEntity);
             return ref ecbPool.BufferPool.Add(cmdEntity);
         }
-        
+
         public static ref TComponent SetOrAdd<TComponent>(ref this CommandsSequenceComponent sequence, int entity, EcsPool<TComponent> sourcePool) where TComponent : struct
         {
             var cmdEntity = sequence.Buffer.CreateCommand<TComponent>(entity, CommandType.SetOrAdd, out var ecbPool);
             sequence.Commands.Add(cmdEntity);
             return ref ecbPool.BufferPool.Add(cmdEntity);
         }
-        
+
         public static void Del<TComponent>(ref this CommandsSequenceComponent sequence, int entity) where TComponent : struct
         {
             var cmdEntity = sequence.Buffer.CreateCommand<TComponent>(entity, CommandType.Add, out _);

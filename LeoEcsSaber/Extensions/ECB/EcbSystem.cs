@@ -14,7 +14,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
     {
         protected EntityCommandBuffer CommandBuffer;
         private Type _cachedType;
-        
+
         protected EcbSystem(EcsWorld sourceWorld, EcsWorld.Config config = default)
         {
             CommandBuffer = new EntityCommandBuffer(sourceWorld, config);
@@ -22,9 +22,9 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
             if (EntityCommandBuffer.Map.TryGetValue(_cachedType, out var list))
                 list.Add(CommandBuffer);
             else
-                EntityCommandBuffer.Map.Add(_cachedType, new FastList<EntityCommandBuffer> {CommandBuffer});
+                EntityCommandBuffer.Map.Add(_cachedType, new FastList<EntityCommandBuffer> { CommandBuffer });
         }
-        
+
         /// <summary>
         /// Execute all commands that belong to the entity.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
         /// <param name="autoClear"> Set false if you want to clear Command Buffer manually. True by default </param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ExecuteCommandsOnEntity(int entity, bool autoClear = true) => CommandBuffer.ExecuteCommandsOnEntity(entity, autoClear);
-        
+
         /// <summary>
         /// Execute concrete packed command.
         /// </summary>
@@ -40,28 +40,28 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
         /// <param name="autoClear"> Set false if you want to clear Command Buffer manually. True by default</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ExecutePackedCommand(ref EcsPackedEntity sequence, bool autoClear = true) => CommandBuffer.ExecutePackedCommandEntity(ref sequence, autoClear);
-        
+
         /// <summary>
         /// Execute one Command Buffer step at index. You can use it in for loop with your custom logic.
         /// </summary>
         /// <param name="index"></param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ExecuteStep(int index) => CommandBuffer.ExecuteStep(index);
-        
+
         /// <summary>
         /// Execute one custom sequences step in Command Buffer at index. You can use it in for loop with your custom logic
         /// </summary>
         /// <param name="index"></param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ExecuteSequenceStep(int index) => CommandBuffer.ExecuteSequenceStep(index);
-        
+
         /// <summary>
         /// Execute all commands
         /// </summary>
         /// <param name="autoClear"></param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ExecuteAll(bool autoClear = true) => CommandBuffer.ExecuteAll(autoClear);
-        
+
         /// <summary>
         /// Manually clear Command Buffer
         /// </summary>
