@@ -5,12 +5,16 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Saber7ooth.LeoEcsSaber
 {
 
+    /// <summary>
+    /// A world is a container for all of the objects in the ECS system.
+    /// </summary>
     public class EcsWorld
     {
         internal EntityData[] Entities;
@@ -53,20 +57,15 @@ namespace Saber7ooth.LeoEcsSaber
         public void RaiseEntityChangeEvent(int entity) => _eventListeners.ForEach(x => x.OnEntityChanged(entity));
 
 #if DEBUG 
-        readonly List<int> _leakedEntities = new List<int>(512);
+        readonly List<int> _leakedEntities = new(512);
 
         internal bool CheckForLeakedEntities()
         {
             if (_leakedEntities.Count > 0)
             {
-                for (int i = 0, iMax = _leakedEntities.Count; i < iMax; i++)
-                {
-                    // TODO:  Keep going here.
-                    ref var entityData = ref Entities[_leakedEntities[i]];
-                    if (entityData.Gen > 0 && entityData.ComponentsCount == 0)
-                    {
-                        return true;
-                    }
+                // Simplify to compiled LINQ expression
+                if ((from int i in _leakedEntities where Entities[i].ComponentsCount == 0 && Entities[i].Gen > 0 select i).Count() > 0) {
+                    return true;
                 }
                 _leakedEntities.Clear();
             }
@@ -74,6 +73,7 @@ namespace Saber7ooth.LeoEcsSaber
         }
 #endif
 
+        // TODO:  I threw up reading this, so it needs fixing.
         public EcsWorld(in Config cfg = default)
         {
             // entities.
@@ -109,13 +109,10 @@ namespace Saber7ooth.LeoEcsSaber
             if (CheckForLeakedEntities()) { throw new Exception($"Empty entity detected before EcsWorld.Destroy()."); }
 #endif
             _destroyed = true;
-            for (var i = _entitiesCount - 1; i >= 0; i--)
-            {
-                ref var entityData = ref Entities[i];
-                if (entityData.ComponentsCount > 0)
-                {
-                    DelEntity(i);
-                }
+            // FIX:  🤢 - I would not do this unless it was 3.2x faster
+            //            at compile time which it is.
+            foreach ( int i in Enumerable.Reverse(Entities.Select((entity, index) => new { entity, index }).Where(x => x.entity.ComponentsCount > 0).Select(x => x.index).ToList())) {
+                DelEntity(i);
             }
             _pools = Array.Empty<IEcsPool>();
             _poolHashes.Clear();
@@ -123,10 +120,9 @@ namespace Saber7ooth.LeoEcsSaber
             _allFilters.Clear();
             _filtersByIncludedComponents = Array.Empty<List<EcsFilter>>();
             _filtersByExcludedComponents = Array.Empty<List<EcsFilter>>();
-            for (var ii = _eventListeners.Count - 1; ii >= 0; ii--)
-            {
-                _eventListeners[ii].OnWorldDestroyed(this);
-            }
+
+            // Workaround is because List.Reverse() is a void.
+            _eventListeners.AsEnumerable().Reverse().ToList().ForEach(x => x.OnWorldDestroyed(this));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -150,20 +146,12 @@ namespace Saber7ooth.LeoEcsSaber
                 if (_entitiesCount == Entities.Length)
                 {
                     // resize entities and component pools.
+                    // Fix:  Much neater.
                     var newSize = _entitiesCount << 1;
                     Array.Resize(ref Entities, newSize);
-                    for (int i = 0, iMax = _poolsCount; i < iMax; i++)
-                    {
-                        _pools[i].Resize(newSize);
-                    }
-                    for (int i = 0, iMax = _allFilters.Count; i < iMax; i++)
-                    {
-                        _allFilters[i].ResizeSparseIndex(newSize);
-                    }
-                    for (int ii = 0, iMax = _eventListeners.Count; ii < iMax; ii++)
-                    {
-                        _eventListeners[ii].OnWorldResized(newSize);
-                    }
+                    _pools.ToList().ForEach(x => x.Resize(newSize));
+                    _allFilters.ToList().ForEach(x => x.ResizeSparseIndex(newSize));
+                    _eventListeners.ToList().ForEach(x => x.OnWorldResized(newSize));
                 }
                 entity = _entitiesCount++;
                 Entities[entity].Gen = 1;
@@ -171,10 +159,8 @@ namespace Saber7ooth.LeoEcsSaber
 #if DEBUG
             _leakedEntities.Add(entity);
 #endif
-            for (int ii = 0, iMax = _eventListeners.Count; ii < iMax; ii++)
-            {
-                _eventListeners[ii].OnEntityCreated(entity);
-            }
+            // FIX: Neater
+            _eventListeners.ToList().ForEach(x => x.OnEntityCreated(entity));
             return entity;
         }
 
@@ -214,53 +200,37 @@ namespace Saber7ooth.LeoEcsSaber
                 Array.Resize(ref _recycledEntities, _recycledEntitiesCount << 1);
             }
             _recycledEntities[_recycledEntitiesCount++] = entity;
-            for (int ii = 0, iMax = _eventListeners.Count; ii < iMax; ii++)
-            {
-                _eventListeners[ii].OnEntityDestroyed(entity);
-            }
+            // FIX: Neater.
+            _eventListeners.ToList().ForEach(x => x.OnEntityDestroyed(entity));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int GetComponentsCount(int entity)
-        {
-            return Entities[entity].ComponentsCount;
-        }
+        public int GetComponentsCount(int entity) => 
+            Entities[entity].ComponentsCount;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short GetEntityGen(int entity)
-        {
-            return Entities[entity].Gen;
-        }
+        public short GetEntityGen(int entity) => 
+            Entities[entity].Gen;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int GetAllocatedEntitiesCount()
-        {
-            return _entitiesCount;
-        }
+        public int GetAllocatedEntitiesCount() => 
+            _entitiesCount;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int GetWorldSize()
-        {
-            return Entities.Length;
-        }
+        public int GetWorldSize() => 
+            Entities.Length;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int GetPoolsCount()
-        {
-            return _poolsCount;
-        }
+        public int GetPoolsCount() => 
+            _poolsCount;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int GetEntitiesCount()
-        {
-            return _entitiesCount - _recycledEntitiesCount;
-        }
+        public int GetEntitiesCount() => 
+            _entitiesCount - _recycledEntitiesCount;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public EntityData[] GetRawEntities()
-        {
-            return Entities;
-        }
+        public EntityData[] GetRawEntities() => 
+            Entities;
 
         public EcsPool<T> GetPool<T>() where T : struct
         {
@@ -283,16 +253,12 @@ namespace Saber7ooth.LeoEcsSaber
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public IEcsPool GetPoolById(int typeId)
-        {
-            return typeId >= 0 && typeId < _poolsCount ? _pools[typeId] : null;
-        }
+        public IEcsPool GetPoolById(int typeId) => 
+            typeId >= 0 && typeId < _poolsCount ? _pools[typeId] : null;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public IEcsPool GetPoolByType(Type type)
-        {
-            return _poolHashes.TryGetValue(type, out var pool) ? pool : null;
-        }
+        public IEcsPool GetPoolByType(Type type) => 
+            _poolHashes.TryGetValue(type, out var pool) ? pool : null;
 
         public int GetAllEntities(ref int[] entities)
         {
@@ -369,11 +335,9 @@ namespace Saber7ooth.LeoEcsSaber
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal bool IsEntityAliveInternal(int entity)
-        {
-            return entity >= 0 && entity < _entitiesCount && Entities[entity].Gen > 0;
-        }
+        internal bool IsEntityAliveInternal(int entity) => entity >= 0 && entity < _entitiesCount && Entities[entity].Gen > 0;
 
+        // TODO:  Jerk off less and fix this function.
         public (EcsFilter, bool) GetFilterInternal(EcsMask mask, int capacity = 512)
         {
             var hash = mask.Hash;
@@ -423,7 +387,7 @@ namespace Saber7ooth.LeoEcsSaber
         {
             var includeList = _filtersByIncludedComponents[componentType];
             var excludeList = _filtersByExcludedComponents[componentType];
-            // FIX:  Optimize loop by boolean checking.
+            // FIX:  Optimize loop by boolean checking, and object emitty.
             if (includeList != null)
             {
                 foreach (var filter in includeList.Where(filter => IsMaskCompatible(filter.GetMask(), entity)))

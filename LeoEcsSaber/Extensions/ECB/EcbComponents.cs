@@ -105,19 +105,14 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static bool ExecuteCommand(this ref CommandComponent command, int cmdEntity, EntityCommandBuffer buffer, out int sourceEntity)
         {
-            switch (command.Type)
+            return command.Type switch
             {
-                case CommandType.Add:
-                    return command.ExecuteAdd(cmdEntity, buffer, out sourceEntity);
-                case CommandType.Set:
-                    return command.ExecuteSet(cmdEntity, buffer, out sourceEntity);
-                case CommandType.SetOrAdd:
-                    return command.ExecuteSetOrAdd(cmdEntity, buffer, out sourceEntity);
-                case CommandType.Del:
-                    return command.ExecuteDel(buffer, out sourceEntity);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                CommandType.Add => command.ExecuteAdd(cmdEntity, buffer, out sourceEntity),
+                CommandType.Set => command.ExecuteSet(cmdEntity, buffer, out sourceEntity),
+                CommandType.SetOrAdd => command.ExecuteSetOrAdd(cmdEntity, buffer, out sourceEntity),
+                CommandType.Del => command.ExecuteDel(buffer, out sourceEntity),
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
 
         // #region EcbSequence

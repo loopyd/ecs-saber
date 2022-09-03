@@ -72,14 +72,11 @@ namespace Saber7ooth.LeoEcsSaber
 
         public void AddEventListener(IEcsFilterEventListener eventListener)
         {
-#if DEBUG
-            if (eventListener == null) { throw new Exception("Listener is null."); }
-#endif
             if (_eventListeners.Length == _eventListenersCount)
             {
                 Array.Resize(ref _eventListeners, _eventListenersCount << 1);
             }
-            _eventListeners[_eventListenersCount++] = eventListener;
+            _eventListeners[_eventListenersCount++] = eventListener ?? throw new Exception("Listener is null.");
         }
 
         public void RemoveEventListener(IEcsFilterEventListener eventListener)

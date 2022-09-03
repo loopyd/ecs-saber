@@ -77,11 +77,11 @@ namespace Saber7ooth.LeoEcsSaber
         {
 #if DEBUG
             if (_inited) { throw new System.Exception("Cant add world after initialization."); }
-            if (world == null) { throw new System.Exception("World cant be null."); }
+
             if (string.IsNullOrEmpty(name)) { throw new System.Exception("World name cant be null or empty."); }
             if (_worlds.ContainsKey(name)) { throw new System.Exception($"World with name \"{name}\" already added."); }
 #endif
-            _worlds[name] = world;
+            _worlds[name] = world ?? throw new System.Exception("World cant be null.");
             return this;
         }
 

@@ -14,7 +14,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 {
     public class EntityCommandBuffer
     {
-        internal readonly static Dictionary<Type, FastList<EntityCommandBuffer>> Map = new Dictionary<Type, FastList<EntityCommandBuffer>>();
+        internal readonly static Dictionary<Type, FastList<EntityCommandBuffer>> Map = new();
 
         internal EcsPool<CommandsSequenceComponent> CommandsSequencePool;
         internal EcsPool<CommandComponent> CommandPool;

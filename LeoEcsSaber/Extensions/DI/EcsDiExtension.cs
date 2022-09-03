@@ -184,7 +184,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di
         public EcsWorld Value;
         string _worldName;
 
-        public static implicit operator EcsWorldInject(string worldName) => new EcsWorldInject { _worldName = worldName };
+        public static implicit operator EcsWorldInject(string worldName) => new() { _worldName = worldName };
 
         void IEcsDataInject.Fill(IEcsSystems systems) => Value = systems.GetWorld(_worldName);
     }

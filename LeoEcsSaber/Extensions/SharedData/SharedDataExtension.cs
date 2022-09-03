@@ -12,7 +12,7 @@ using System.Reflection;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.Shared
 {
-    public static class shared
+    public static class SharedDataExtension
     {
         private const string SharedFieldNameInEcsSystems = "_shared";
         private static readonly Type SharedAttrType = typeof(EcsInjectAttribute);
@@ -70,7 +70,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Shared
 
         public class Shared
         {
-            private readonly Dictionary<Type, object> _dictionary = new Dictionary<Type, object>();
+            private readonly Dictionary<Type, object> _dictionary = new();
 
             public void Set<T>(T instance)
             {
