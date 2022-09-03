@@ -24,6 +24,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    environment: staging
     permissions:
       actions: read
       contents: read
@@ -47,28 +48,40 @@ jobs:
         # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         queries: security-extended, security-and-quality
 
-    # Mods:  Integrate existing pipelines
-    - name: Autobuild (Release)
-      uses: ./.github/workflows/build.yml
-      with:
-        build_docs: false
-        build_configuration: release
-        library_name: LeoEcsSaber
-        library_sdk_version: 3.1.x
-        src_branch: master
-        repo_org: loopyd
-        repo_project: ecs-saber
+  build_release:
+    name: Autobuild (Release)
+    environment: staging
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: ./.github/workflows/build.yml
+    with:
+      build_docs: false
+      build_configuration: release
+      library_name: LeoEcsSaber
+      library_sdk_version: 3.1.x
+      src_branch: master
+      repo_org: loopyd
+      repo_project: ecs-saber
 
-    - name: Autobuild (Debug)
-      uses: ./.github/workflows/build.yml
-      with:
-        build_docs: false
-        build_configuration: debug
-        library_name: LeoEcsSaber
-        library_sdk_version: 3.1.x
-        src_branch: master
-        repo_org: loopyd
-        repo_project: ecs-saber
+  build_debug:
+    name: Autobuild (Debug)
+    environment: staging
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: ./.github/workflows/build.yml
+    with:
+      build_docs: false
+      build_configuration: debug
+      library_name: LeoEcsSaber
+      library_sdk_version: 3.1.x
+      src_branch: master
+      repo_org: loopyd
+      repo_project: ecs-saber
 
+  analyze:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
