@@ -47,10 +47,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nuget
 
-    - name: Build library
+    - name: Build library (Debug)
       run: |
         dotnet restore
-        dotnet build --configuration ${{ inputs.build_configuration }}
+        dotnet build --configuration debug
+    
+    - name: Build library (Release)
+      run: |
+        dotnet restore
+        dotnet build --configuration release
 
     - name: Analyze (Process)
       uses: github/codeql-action/analyze@v2
