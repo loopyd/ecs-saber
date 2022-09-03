@@ -82,7 +82,7 @@ jobs:
 
       - name: Deploy docs to github gh-pages branch.
         run: |
-          mv -rfv ./docs/* ./
+          mv -fv ./docs/* ./
           rm -rfv ./docs
           git config --global user.email='${{ inputs.github_email }}'
           git config --global user.username='${{ inputs.github_username }}'
