@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - docsfx
   workflow_dispatch:
 
 jobs:
