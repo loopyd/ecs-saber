@@ -80,8 +80,6 @@ jobs:
         if: ${{ inputs.deploy_docs == true }}
 
       - name: Deploy docs to github gh-pages branch.
-        permissions:
-          contents: write
         run: |
           mv -fv ./docs/* ./
           rm -rfv ./docs
