@@ -18,8 +18,8 @@ Everything, basically.
 - All extension plugins combined into one so you get the full featureset of ``LeoEcs-lite`` without having to do all the manual work
 - Code optimized and stripped, with Unity dependencies removed so you can use it anywhere!
 - Refactored for .NET Core 3.1 which makes it fully cross platform / agnostic / GAC independent when statically built.
+- Intense code optimization and refactoring that speeds up the performance of the original project by taking advantage of modern compiler features, without losing stability or the intent of the original work.
 
+## In Development / Contributors requested
 
-## In development / Contributors requested
-
-This project is still in development and growing quickly.  Its maintained by one very dedicated full-stack guy.  If you want to help, fork me for the purposes of submitting a PR, and then push me your suggested changes.
+This project is still in development and growing quickly.  Its maintained by one very dedicated full-stack guy so far.  If you want to help, fork me for the purposes of submitting a PR, and then push me your suggested changes.
