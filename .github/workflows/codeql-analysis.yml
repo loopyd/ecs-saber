@@ -21,8 +21,8 @@ on:
     - cron: '27 14 * * 0'
 
 jobs:
-  analyze:
-    name: Analyze
+  analyze_init:
+    name: Analyze (Init)
     runs-on: ubuntu-latest
     environment: staging
     permissions:
@@ -83,7 +83,7 @@ jobs:
       repo_project: ecs-saber
 
   analyze:
-    name: Autobuild (Debug)
+    name: Analyze (Process)
     environment: staging
     permissions:
       actions: read
