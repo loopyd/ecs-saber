@@ -2,7 +2,7 @@
 
 The agnostic way to run LeoECS Entity Component System Framework.
 
-[![Release Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml/badge.svg?branch=master)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml) [![DocFX Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml/badge.svg)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml) [![CodeQL](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_runql.yml/badge.svg)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_runql.yml)
+[![Release Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml/badge.svg?branch=master)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_master.yml) [![DocFX Build](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml/badge.svg)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_docfx.yml) [![CodeQL Tests](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_runql.yml/badge.svg)](https://github.com/loopyd/ecs-saber/actions/workflows/onpush_runql.yml)
 
 We are an independent fork that promises upkeep in following the [main repository](https://github.com/Leopotam/ecs) .
 
