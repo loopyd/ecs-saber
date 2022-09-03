@@ -47,13 +47,11 @@ on:
         required: false
         type: string
 
-permissions:
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: staging
+    permissions: read
 
     steps:
       - name: Clone ${{ inputs.src_branch }} branch
