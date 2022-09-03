@@ -5,8 +5,6 @@
 // Code modified to work independently of repository by Robert Smith <nightwintertooth@gmail.com>
 // ----------------------------------------------------------------------------
 
-using Saber7ooth.LeoEcsSaber;
-
 namespace Saber7ooth.LeoEcsSaber.Extensions.Threading
 {
     public abstract class EcsThreadSystem<TThread, T1> : EcsThreadSystemBase, IEcsRunSystem

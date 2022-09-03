@@ -7,7 +7,6 @@
 
 using System;
 using System.Threading;
-using Saber7ooth.LeoEcsSaber;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.Threading
 {

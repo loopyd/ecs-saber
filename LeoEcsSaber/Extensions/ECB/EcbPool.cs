@@ -5,9 +5,6 @@
 // Code modified to work independently of repository by Robert Smith <nightwintertooth@gmail.com>
 // ----------------------------------------------------------------------------
 
-using System;
-using Saber7ooth.LeoEcsSaber;
-
 namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 {
     internal interface IEcbPool

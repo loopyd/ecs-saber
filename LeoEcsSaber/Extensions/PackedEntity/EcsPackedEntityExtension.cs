@@ -6,9 +6,9 @@
 // ----------------------------------------------------------------------------
 
 using System.Runtime.CompilerServices;
-using Saber7ooth.LeoEcsSaber;
 
-namespace Saber7ooth.LeoEcsSaber.Extensions.PackedEntity {
+namespace Saber7ooth.LeoEcsSaber.Extensions.PackedEntity
+{
     public struct EcsPackedEntity {
         internal int Id;
         internal int Gen;

@@ -5,8 +5,6 @@
 // Code modified to work independently of repository by Robert Smith <nightwintertooth@gmail.com>
 // ----------------------------------------------------------------------------
 
-using System;
-
 namespace Saber7ooth.LeoEcsSaber.Extensions.ExtendedSystems
 {
     public struct EcsGroupSystemState

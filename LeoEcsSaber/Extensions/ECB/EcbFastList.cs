@@ -9,7 +9,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Saber7ooth.LeoEcsSaber;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 {

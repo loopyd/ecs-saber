@@ -82,12 +82,12 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
 
     public interface IEcsInclude
     {
-        EcsWorld.Mask Fill(EcsWorld world);
+        EcsMask Fill(EcsWorld world);
     }
 
     public interface IEcsExclude
     {
-        EcsWorld.Mask Fill(EcsWorld.Mask mask);
+        EcsMask Fill(EcsMask mask);
     }
 
     public struct EcsFilterInject<TInc> : IEcsDataInject
@@ -182,15 +182,9 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsWorld Value;
         string _worldName;
 
-        public static implicit operator EcsWorldInject(string worldName)
-        {
-            return new EcsWorldInject { _worldName = worldName };
-        }
+        public static implicit operator EcsWorldInject(string worldName) => new EcsWorldInject { _worldName = worldName };
 
-        void IEcsDataInject.Fill(IEcsSystems systems)
-        {
-            Value = systems.GetWorld(_worldName);
-        }
+        void IEcsDataInject.Fill(IEcsSystems systems) => Value = systems.GetWorld(_worldName);
     }
 
     public struct Inc<T1> : IEcsInclude
@@ -198,16 +192,13 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
     {
         public EcsPool<T1> Inc1;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             return world.Filter<T1>();
         }
 
-        public EcsWorld.Mask Exclude(EcsWorld.Mask mask)
-        {
-            return mask.Exc<T1>();
-        }
+        public EcsMask Exclude(EcsMask mask) => mask.Exc<T1>();
     }
 
     public struct Inc<T1, T2> : IEcsInclude
@@ -216,7 +207,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T1> Inc1;
         public EcsPool<T2> Inc2;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -231,7 +222,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T2> Inc2;
         public EcsPool<T3> Inc3;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -248,7 +239,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T3> Inc3;
         public EcsPool<T4> Inc4;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -267,7 +258,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T4> Inc4;
         public EcsPool<T5> Inc5;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -293,7 +284,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T5> Inc5;
         public EcsPool<T6> Inc6;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -322,7 +313,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T6> Inc6;
         public EcsPool<T7> Inc7;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -354,7 +345,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
         public EcsPool<T7> Inc7;
         public EcsPool<T8> Inc8;
 
-        public EcsWorld.Mask Fill(EcsWorld world)
+        public EcsMask Fill(EcsWorld world)
         {
             Inc1 = world.GetPool<T1>();
             Inc2 = world.GetPool<T2>();
@@ -371,36 +362,24 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Di {
     public struct Exc<T1> : IEcsExclude
     where T1 : struct
     {
-        public EcsWorld.Mask Fill(EcsWorld.Mask mask)
-        {
-            return mask.Exc<T1>();
-        }
+        public EcsMask Fill(EcsMask mask) => mask.Exc<T1>();
     }
 
     public struct Exc<T1, T2> : IEcsExclude
     where T1 : struct where T2 : struct
     {
-        public EcsWorld.Mask Fill(EcsWorld.Mask mask)
-        {
-            return mask.Exc<T1>().Exc<T2>();
-        }
+        public EcsMask Fill(EcsMask mask) => mask.Exc<T1>().Exc<T2>();
     }
 
     public struct Exc<T1, T2, T3> : IEcsExclude
     where T1 : struct where T2 : struct where T3 : struct
     {
-        public EcsWorld.Mask Fill(EcsWorld.Mask mask)
-        {
-            return mask.Exc<T1>().Exc<T2>().Exc<T3>();
-        }
+        public EcsMask Fill(EcsMask mask) => mask.Exc<T1>().Exc<T2>().Exc<T3>();
     }
 
     public struct Exc<T1, T2, T3, T4> : IEcsExclude
     where T1 : struct where T2 : struct where T3 : struct where T4 : struct
     {
-        public EcsWorld.Mask Fill(EcsWorld.Mask mask)
-        {
-            return mask.Exc<T1>().Exc<T2>().Exc<T3>().Exc<T4>();
-        }
+        public EcsMask Fill(EcsMask mask) => mask.Exc<T1>().Exc<T2>().Exc<T3>().Exc<T4>();
     }
 }

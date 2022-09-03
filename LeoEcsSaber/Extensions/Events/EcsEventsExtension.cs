@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Saber7ooth.LeoEcsSaber;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.Events
 {

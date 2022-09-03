@@ -7,7 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Saber7ooth.LeoEcsSaber {
+namespace Saber7ooth.LeoEcsSaber
+{
 
     public class EcsWorld {
         internal EntityData[] Entities;
@@ -23,8 +24,8 @@ namespace Saber7ooth.LeoEcsSaber {
         readonly List<EcsFilter> _allFilters;
         List<EcsFilter>[] _filtersByIncludedComponents;
         List<EcsFilter>[] _filtersByExcludedComponents;
-        Mask[] _masks;
-        int _masksCount;
+        public EcsMask[] _masks;
+        public int _masksCount;
 
         bool _destroyed;
         List<IEcsWorldEventListener> _eventListeners;
@@ -87,7 +88,7 @@ namespace Saber7ooth.LeoEcsSaber {
             _hashedFilters = new Dictionary<int, EcsFilter> (capacity);
             _allFilters = new List<EcsFilter> (capacity);
             // masks.
-            _masks = new Mask[64];
+            _masks = new EcsMask[64];
             _masksCount = 0;
             _eventListeners = new List<IEcsWorldEventListener> (4);
             _destroyed = false;
@@ -276,8 +277,8 @@ namespace Saber7ooth.LeoEcsSaber {
         }
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        public Mask Filter<T> () where T : struct {
-            var mask = _masksCount > 0 ? _masks[--_masksCount] : new Mask (this);
+        public EcsMask Filter<T> () where T : struct {
+            var mask = _masksCount > 0 ? _masks[--_masksCount] : new EcsMask (this);
             return mask.Inc<T> ();
         }
 
@@ -314,7 +315,7 @@ namespace Saber7ooth.LeoEcsSaber {
             return entity >= 0 && entity < _entitiesCount && Entities[entity].Gen > 0;
         }
 
-        (EcsFilter, bool) GetFilterInternal (Mask mask, int capacity = 512) {
+        public (EcsFilter, bool) GetFilterInternal (EcsMask mask, int capacity = 512) {
             var hash = mask.Hash;
             var exists = _hashedFilters.TryGetValue (hash, out var filter);
             if (exists) { return (filter, false); }
@@ -402,7 +403,7 @@ namespace Saber7ooth.LeoEcsSaber {
         }
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        bool IsMaskCompatible (Mask filterMask, int entity) {
+        bool IsMaskCompatible (EcsMask filterMask, int entity) {
             for (int i = 0, iMax = filterMask.IncludeCount; i < iMax; i++) {
                 if (!_pools[filterMask.Include[i]].Has (entity)) {
                     return false;
@@ -417,7 +418,7 @@ namespace Saber7ooth.LeoEcsSaber {
         }
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        bool IsMaskCompatibleWithout (Mask filterMask, int entity, int componentId) {
+        bool IsMaskCompatibleWithout (EcsMask filterMask, int entity, int componentId) {
             for (int i = 0, iMax = filterMask.IncludeCount; i < iMax; i++) {
                 var typeId = filterMask.Include[i];
                 if (typeId == componentId || !_pools[typeId].Has (entity)) {
@@ -447,91 +448,6 @@ namespace Saber7ooth.LeoEcsSaber {
             internal const int FiltersDefault = 512;
             internal const int PoolDenseSizeDefault = 512;
             internal const int PoolRecycledSizeDefault = 512;
-        }
-
-        public sealed class Mask {
-            readonly EcsWorld _world;
-            internal int[] Include;
-            internal int[] Exclude;
-            internal int IncludeCount;
-            internal int ExcludeCount;
-            internal int Hash;
-#if DEBUG
-            bool _built;
-#endif
-
-            internal Mask (EcsWorld world) {
-                _world = world;
-                Include = new int[8];
-                Exclude = new int[2];
-                Reset ();
-            }
-
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
-            void Reset () {
-                IncludeCount = 0;
-                ExcludeCount = 0;
-                Hash = 0;
-#if DEBUG
-                _built = false;
-#endif
-            }
-
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
-            public Mask Inc<T> () where T : struct {
-                var poolId = _world.GetPool<T> ().GetId ();
-#if DEBUG
-                if (_built) { throw new Exception ("Cant change built mask."); }
-                if (Array.IndexOf (Include, poolId, 0, IncludeCount) != -1) { throw new Exception ($"{typeof (T).Name} already in constraints list."); }
-                if (Array.IndexOf (Exclude, poolId, 0, ExcludeCount) != -1) { throw new Exception ($"{typeof (T).Name} already in constraints list."); }
-#endif
-                if (IncludeCount == Include.Length) { Array.Resize (ref Include, IncludeCount << 1); }
-                Include[IncludeCount++] = poolId;
-                return this;
-            }
-
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
-            public Mask Exc<T> () where T : struct {
-                var poolId = _world.GetPool<T> ().GetId ();
-#if DEBUG
-                if (_built) { throw new Exception ("Cant change built mask."); }
-                if (Array.IndexOf (Include, poolId, 0, IncludeCount) != -1) { throw new Exception ($"{typeof (T).Name} already in constraints list."); }
-                if (Array.IndexOf (Exclude, poolId, 0, ExcludeCount) != -1) { throw new Exception ($"{typeof (T).Name} already in constraints list."); }
-#endif
-                if (ExcludeCount == Exclude.Length) { Array.Resize (ref Exclude, ExcludeCount << 1); }
-                Exclude[ExcludeCount++] = poolId;
-                return this;
-            }
-
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
-            public EcsFilter End (int capacity = 512) {
-#if DEBUG
-                if (_built) { throw new Exception ("Cant change built mask."); }
-                _built = true;
-#endif
-                Array.Sort (Include, 0, IncludeCount);
-                Array.Sort (Exclude, 0, ExcludeCount);
-                // calculate hash.
-                Hash = IncludeCount + ExcludeCount;
-                for (int i = 0, iMax = IncludeCount; i < iMax; i++) {
-                    Hash = unchecked (Hash * 314159 + Include[i]);
-                }
-                for (int i = 0, iMax = ExcludeCount; i < iMax; i++) {
-                    Hash = unchecked (Hash * 314159 - Exclude[i]);
-                }
-                var (filter, isNew) = _world.GetFilterInternal (this, capacity);
-                if (!isNew) { Recycle (); }
-                return filter;
-            }
-
-            [MethodImpl (MethodImplOptions.AggressiveInlining)]
-            void Recycle () {
-                Reset ();
-                if (_world._masksCount == _world._masks.Length) {
-                    Array.Resize (ref _world._masks, _world._masksCount << 1);
-                }
-                _world._masks[_world._masksCount++] = this;
-            }
         }
 
         public struct EntityData {

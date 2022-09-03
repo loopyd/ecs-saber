@@ -14,7 +14,7 @@ namespace Saber7ooth.LeoEcsSaber {
 
     public sealed class EcsFilter {
         readonly EcsWorld _world;
-        readonly EcsWorld.Mask _mask;
+        readonly EcsMask _mask;
         int[] _denseEntities;
         int _entitiesCount;
         internal int[] SparseEntities;
@@ -24,7 +24,7 @@ namespace Saber7ooth.LeoEcsSaber {
         IEcsFilterEventListener[] _eventListeners = new IEcsFilterEventListener[4];
         int _eventListenersCount;
 
-        internal EcsFilter (EcsWorld world, EcsWorld.Mask mask, int denseCapacity, int sparseCapacity) {
+        internal EcsFilter (EcsWorld world, EcsMask mask, int denseCapacity, int sparseCapacity) {
             _world = world;
             _mask = mask;
             _denseEntities = new int[denseCapacity];
@@ -88,7 +88,7 @@ namespace Saber7ooth.LeoEcsSaber {
         }
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        internal EcsWorld.Mask GetMask () {
+        internal EcsMask GetMask () {
             return _mask;
         }
 

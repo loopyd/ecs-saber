@@ -7,8 +7,6 @@
 
 using System;
 using System.Runtime.CompilerServices;
-using Saber7ooth.LeoEcsSaber;
-using Saber7ooth.LeoEcsSaber.Extensions.PackedEntity;
 
 namespace Saber7ooth.LeoEcsSaber.Extensions.ECB
 {
