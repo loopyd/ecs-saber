@@ -5,7 +5,7 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <DefineConstants>WINDOWS</DefineConstants>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <Target Name="SpicNSpan" AfterTargets="Clean">
     <RemoveDir Directories="$(BaseIntermediateOutputPath)"/>
