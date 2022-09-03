@@ -42,13 +42,12 @@ on:
         required: true
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: staging
+    permissions:
+      contents: write
 
     steps:
       - name: Clone ${{ inputs.src_branch }} branch
@@ -81,6 +80,8 @@ jobs:
         if: ${{ inputs.deploy_docs == true }}
 
       - name: Deploy docs to github gh-pages branch.
+        permissions:
+          contents: write
         run: |
           mv -fv ./docs/* ./
           rm -rfv ./docs
