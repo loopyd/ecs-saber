@@ -69,7 +69,7 @@ jobs:
           git checkout ${{ inputs.gh_pages_branch }}
           git clean -dxf
           rm -rfv !(.*)
-          [ ! -f "./.nojekyll" ] && touch ./.nojekyll
+          [ ! -z ./.nojekyll ] && touch ./.nojekyll
         shell: bash
         if: ${{ inputs.deploy_docs == true }}
 
