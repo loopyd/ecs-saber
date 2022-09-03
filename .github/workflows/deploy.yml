@@ -90,3 +90,34 @@ jobs:
           git push
         shell: bash
         if: ${{ inputs.deploy_docs == true }}
+
+  deploy_pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    needs: deploy
+
+    steps:
+      - name: Checkout  ${{ inputs.gh_pages_branch }} branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.gh_pages_branch }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+    
+    if: ${{ inputs.deploy_docs == true }}
