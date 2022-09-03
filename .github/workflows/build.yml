@@ -51,7 +51,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: staging
-    permissions: read
+    permissions: 
+      contents: read
 
     steps:
       - name: Clone ${{ inputs.src_branch }} branch
