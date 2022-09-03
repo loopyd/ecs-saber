@@ -49,16 +49,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: staging
-    
+
     steps:
       - name: Clone ${{ inputs.src_branch }} branch
-        uses: actions/checkout@v3
+        using: actions/checkout@v3
         with:
           ref: ${{ inputs.src_branch }}
         if: ${{ inputs.deploy_docs == false }}
 
       - name: Clone ${{ inputs.gh_pages_branch }}
-        uses: actions/checkout@v3
+        using: actions/checkout@v3
         with:
           ref: ${{ inputs.gh_pages_branch }}
         if: ${{ inputs.deploy_docs == true }}
@@ -74,7 +74,7 @@ jobs:
         if: ${{ inputs.deploy_docs == true }}
 
       - name: Fetch build artifacts from build workflow for docs
-        uses: actions/download-artifact@v3
+        using: actions/download-artifact@v3
         with:
           name: ${{ inputs.library_name }}-docs
           path: docs
