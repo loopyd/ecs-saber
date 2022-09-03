@@ -1,0 +1,56 @@
+name: "Test"
+
+on:
+  push:
+    branches: [ "master", "docfx" ]
+  pull_request:
+    branches: [ "master", "docfx" ]
+  schedule:
+    - cron: '27 14 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze (Init)
+    runs-on: ubuntu-latest
+    environment: staging
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended, security-and-quality
+
+    - name: Set up .NET SDK for build
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 3.1.x
+    
+    - name: Set up dependency caching for faster builds
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget
+
+    - name: Build library
+      run: |
+        dotnet restore
+        dotnet build --configuration ${{ inputs.build_configuration }}
+
+    - name: Analyze (Process)
+      uses: github/codeql-action/analyze@v2
