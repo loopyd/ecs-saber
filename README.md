@@ -6,6 +6,10 @@ The agnostic way to run LeoECS Entity Component System Framework.
 
 We are an independent fork that promises upkeep in following the [main repository](https://github.com/Leopotam/ecs) .
 
+## Now protected by GitHub CodeQL
+
+🎉🔐 GitHub CodeQL security PROTECTS the project, all of its commits, PRs, and publically shared Release content against the inclusion of bad coding conventions, security valnerabilities, and the inclusion of malware.  Your downloads are safe!  🔐🎉
+
 ## What's different?
 
 Everything, basically.
@@ -14,6 +18,7 @@ Everything, basically.
 - All extension plugins combined into one so you get the full featureset of ``LeoEcs-lite`` without having to do all the manual work
 - Code optimized and stripped, with Unity dependencies removed so you can use it anywhere!
 - Refactored for .NET Core 3.1 which makes it fully cross platform / agnostic / GAC independent when statically built.
+
 
 ## In development / Contributors requested
 
