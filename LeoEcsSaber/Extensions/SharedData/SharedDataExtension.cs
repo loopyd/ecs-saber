@@ -30,7 +30,7 @@ namespace Saber7ooth.LeoEcsSaber.Extensions.Shared
                 // ReSharper disable once PossibleNullReferenceException
                 fieldShared.SetValue(systems, shared);
             }
-            else if (sharedObject is not Shared)
+            else if (!(sharedObject is Shared))
             {
                 throw new Exception(
                 $"You cannot use InjectShared() when the Shared object has already been used in EcsSystems ({sharedObject.GetType().Name}), it should be: new EcsSystems(world);");
