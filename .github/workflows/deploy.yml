@@ -48,6 +48,8 @@ jobs:
     environment: staging
     permissions:
       contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Clone ${{ inputs.src_branch }} branch

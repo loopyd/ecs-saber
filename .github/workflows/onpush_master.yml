@@ -10,8 +10,6 @@ jobs:
   build_lib:
     name: Build Library
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
-    permissions:
-      contents: read
     with:
       build_docs: false
       build_configuration: release
@@ -24,8 +22,6 @@ jobs:
   build_docs:
     name: Build Documentation
     uses: loopyd/ecs-saber/.github/workflows/build.yml@master
-    permissions:
-      contents: read
     with:
       build_docs: true
       build_configuration: debug
@@ -39,8 +35,6 @@ jobs:
     name: Deploy Documentation
     needs: build_docs
     uses: loopyd/ecs-saber/.github/workflows/deploy.yml@master
-    permissions:
-      contents: write
     with:
       deploy_docs: true
       library_name: LeoEcsSaber
