@@ -75,7 +75,7 @@ jobs:
         if: ${{ inputs.deploy_docs == true }}
 
       - name: Fetch build artifacts from build workflow for docs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: ${{ inputs.library_name }}-docs
           path: docs
